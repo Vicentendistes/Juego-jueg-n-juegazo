@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/charlie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
@@ -9,29 +9,29 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80, 20 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13, 13 )
+
 [node name="Main" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 201, 101 )
 scale = Vector2( 1.05208, 0.935185 )
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CloudsMg1" type="Sprite" parent="Sprite"]
 position = Vector2( 0.9505, 0 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Sprite"]
-position = Vector2( 60, 80 )
-scale = Vector2( 0.923267, 0.876238 )
+position = Vector2( 40.8714, 153.98 )
+scale = Vector2( 1.50124, 1.81931 )
 z_index = 1
 texture = ExtResource( 5 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
-position = Vector2( 49, 35 )
+position = Vector2( 58, 97 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 110, 158 )
@@ -59,4 +59,19 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Floor2"]
 position = Vector2( -1.90735e-06, 16 )
 scale = Vector2( 2.5, 1.125 )
+texture = ExtResource( 2 )
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2( 121, 100 )
+scale = Vector2( 2.5, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Floor3"]
+position = Vector2( 1.52588e-05, 3.8147e-06 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
