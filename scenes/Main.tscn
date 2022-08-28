@@ -15,9 +15,12 @@ extents = Vector2( 13, 13 )
 [node name="Main" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 201, 101 )
+position = Vector2( 200, 100 )
 scale = Vector2( 1.05208, 0.935185 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CloudsMg1" type="Sprite" parent="Sprite"]
 position = Vector2( 0.9505, 0 )
