@@ -19,7 +19,7 @@ func _on_settings_pressed():
 	get_tree().change_scene("res://ui/settings.tscn")
 	
 func _on_credits_pressed():
-	print("creditos varios")
+	get_tree().change_scene("res://scenes/level_01.tscn")
 	
 func _on_exit_pressed():
 	get_tree().quit()
