@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/charlie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Dungeon Ruins Tileset/Dungeon Ruins Tileset Day.png" type="Texture" id=2]
@@ -9,6 +9,9 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 48, 32, 0, 32, 0, 0, 48, 0 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "Dungeon Ruins Tileset Day.png 0"
@@ -81,19 +84,68 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
+4/name = "Dungeon Ruins Tileset Day.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 448, 0, 64, 64 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "Dungeon Ruins Tileset Day.png 5"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 16, 208, 48, 32 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 4 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+6/name = "Dungeon Ruins Tileset Day.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 176, 112, 16, 16 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
 
 [node name="level_01" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 202, 101 )
-scale = Vector2( 1.07292, 1 )
+position = Vector2( 202, 112.5 )
+scale = Vector2( 1.07292, 1.10648 )
 texture = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 393222, 3, 0, 393232, 2, 0, 458764, 1, 0, 458766, 1, 0, 458768, 1, 0, 458770, 1, 0, 524289, 2, 0, 589825, 0, 0, 589828, 0, 0, 589831, 0, 0 )
+tile_data = PoolIntArray( 327695, 5, 0, 393222, 3, 0, 393232, 2, 0, 458764, 1, 0, 458766, 1, 0, 458768, 1, 0, 458770, 1, 0, 524289, 2, 0, 589825, 0, 0, 589828, 0, 0, 589831, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }

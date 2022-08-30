@@ -15,8 +15,8 @@ extents = Vector2( 13, 13 )
 [node name="Main" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 200, 100 )
-scale = Vector2( 1.05208, 0.935185 )
+position = Vector2( 205, 114.5 )
+scale = Vector2( 1.07812, 1.06944 )
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -37,7 +37,7 @@ texture = ExtResource( 5 )
 position = Vector2( 58, 97 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 110, 158 )
+position = Vector2( 111, 180 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -51,7 +51,7 @@ scale = Vector2( 2.5, 0.625 )
 texture = ExtResource( 2 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2( 270, 127 )
+position = Vector2( 271, 151 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -65,7 +65,7 @@ scale = Vector2( 2.5, 1.125 )
 texture = ExtResource( 2 )
 
 [node name="Floor3" type="StaticBody2D" parent="."]
-position = Vector2( 121, 100 )
+position = Vector2( 127, 120 )
 scale = Vector2( 2.5, 1 )
 __meta__ = {
 "_edit_group_": true
