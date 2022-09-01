@@ -10,8 +10,8 @@ var JUMP_TIME = 0.15
 var GRAVITY = 10
 
 onready var pivot = $Pivot
-onready var sprite = $Pivot/Sprite
-onready var anim_player = $AnimationPlayer
+#onready var sprite = $Pivot/Sprite
+#onready var anim_player = $AnimationPlayer
 onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 
@@ -32,11 +32,13 @@ func _physics_process(delta):
 	if is_on_floor() and timer > 0:	
 		timer = 0
 		velocity.y = -JUMP_SPEED
-		
+	
+	#back to main menu
 	if Input.is_action_just_pressed("quit"):
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://ui/main_menu.tscn")
 	
-	# Animations
+	#========================================[ANIMATIONS]=======================================
 	if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
 		pivot.scale.x = 1
 	if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
