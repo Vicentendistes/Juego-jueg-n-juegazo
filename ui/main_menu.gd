@@ -13,7 +13,7 @@ func _ready():
 	exit.connect("pressed", self, "_on_exit_pressed")
 	
 func _on_play_pressed():
-	if get_tree().change_scene("res://scenes/Main.tscn") != OK:
+	if get_tree().change_scene("res://scenes/main.tscn") != OK:
 		print("error al cambiar de escena")
 	
 func _on_settings_pressed():
