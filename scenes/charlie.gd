@@ -34,7 +34,8 @@ func _physics_process(delta):
 	#back to main menu
 	if Input.is_action_just_pressed("quit"):
 	# warning-ignore:return_value_discarded
-		get_tree().change_scene("res://ui/main_menu.tscn")
+		if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
+			print("error al cambiar de escena")
 	
 	#========================================[ANIMATIONS]=======================================
 	if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):

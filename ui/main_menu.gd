@@ -13,13 +13,16 @@ func _ready():
 	exit.connect("pressed", self, "_on_exit_pressed")
 	
 func _on_play_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
+	if get_tree().change_scene("res://scenes/Main.tscn") != OK:
+		print("error al cambiar de escena")
 	
 func _on_settings_pressed():
-	get_tree().change_scene("res://ui/settings.tscn")
+	if get_tree().change_scene("res://ui/settings.tscn") != OK:
+		print("error al cambiar de escena")
 	
 func _on_credits_pressed():
-	get_tree().change_scene("res://scenes/level_01.tscn")
+	if get_tree().change_scene("res://scenes/level_01.tscn") != OK:
+		print("error al cambiar de escena")
 	
 func _on_exit_pressed():
 	get_tree().quit()

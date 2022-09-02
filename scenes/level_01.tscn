@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/charlie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Dungeon Ruins Tileset/Dungeon Ruins Tileset Day.png" type="Texture" id=2]
-[ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains_lightened.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
@@ -136,10 +135,8 @@ points = PoolVector2Array( 48, 32, 0, 32, 0, 0, 48, 0 )
 
 [node name="level_01" type="Node"]
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 202, 112.5 )
-scale = Vector2( 1.07292, 1.10648 )
-texture = ExtResource( 3 )
+[node name="Charlie" parent="." instance=ExtResource( 1 )]
+position = Vector2( 39, 115 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
@@ -149,6 +146,3 @@ tile_data = PoolIntArray( 327695, 5, 0, 393222, 3, 0, 393232, 2, 0, 458764, 1, 0
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Charlie" parent="TileMap" instance=ExtResource( 1 )]
-position = Vector2( 39, 115 )
