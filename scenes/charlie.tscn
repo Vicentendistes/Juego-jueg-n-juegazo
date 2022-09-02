@@ -276,7 +276,7 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="CameraOffset" type="Position2D" parent="Pivot"]
-position = Vector2( 50, -30 )
+position = Vector2( 51, -27 )
 
 [node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset"]
 current = true
