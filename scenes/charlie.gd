@@ -10,8 +10,6 @@ var JUMP_TIME = 0.15
 var GRAVITY = 10
 
 onready var pivot = $Pivot
-#onready var sprite = $Pivot/Sprite
-#onready var anim_player = $AnimationPlayer
 onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 
@@ -35,7 +33,7 @@ func _physics_process(delta):
 	
 	#back to main menu
 	if Input.is_action_just_pressed("quit"):
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://ui/main_menu.tscn")
 	
 	#========================================[ANIMATIONS]=======================================
@@ -54,3 +52,5 @@ func _physics_process(delta):
 			playback.travel("jump")
 		else:
 			playback.travel("fall")
+			
+	#==========================================[CAMERA]=========================================

@@ -276,15 +276,15 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="CameraOffset" type="Position2D" parent="Pivot"]
-position = Vector2( 50, 0 )
+position = Vector2( 50, -30 )
 
 [node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset"]
-position = Vector2( 1, -30 )
 current = true
 process_mode = 0
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+smoothing_speed = 4.0
 editor_draw_drag_margin = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Pivot/CameraOffset/Camera2D"]
