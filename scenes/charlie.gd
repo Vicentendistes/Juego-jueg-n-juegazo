@@ -27,7 +27,8 @@ func _physics_process(delta):
 	
 	var move_input = Input.get_axis("move_left", "move_right")
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta) 
-	velocity.y +=  GRAVITY
+	if velocity.y < 500:
+		velocity.y +=  GRAVITY
 	
 	if timer > 0:
 		timer -= delta/JUMP_TIME
@@ -48,6 +49,13 @@ func _physics_process(delta):
 		if array != []:
 			var iman = array[0]
 			var direction = iman.position - position
+			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
+			velocity += direction.normalized()*FORCE
+			
+	if Input.is_action_just_pressed("push"):
+		if array != []:
+			var iman = array[0]
+			var direction = position - iman.position
 			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
 			velocity += direction.normalized()*FORCE
 	
@@ -74,17 +82,15 @@ func _physics_process(delta):
 
 
 
-
+#Alcance de la fuerza
 func _on_Area2D_body_entered(body: Node):
-	body.rotation = 5
+	var sprite = body.get_node("Icon")
+	sprite.self_modulate = Color(1, 1, 1)
 	if not (body in array):
 		array.append(body)
-	print("ha entrado")
-	print(array)
 	
 func _on_Area2D_body_exited(body: Node):
-	body.rotation = 0
+	var sprite = body.get_node("Icon")
+	sprite.self_modulate = Color(1, 1, 1, 0)
 	if body in array:
 		array.erase(body)
-		print("se ha ido")
-		print(array)

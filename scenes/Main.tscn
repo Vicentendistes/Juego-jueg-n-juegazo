@@ -86,8 +86,8 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
 [node name="Floor5" type="StaticBody2D" parent="Floors"]
-position = Vector2( 537, 79 )
-scale = Vector2( 6.11832, 2.75317 )
+position = Vector2( 528, 74 )
+scale = Vector2( 6.28232, 1.50294 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -157,7 +157,12 @@ __meta__ = {
 }
 
 [node name="Icon" type="Sprite" parent="Imantado"]
-modulate = Color( 0, 1, 0.345098, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.28125, 0.28125 )
+texture = ExtResource( 2 )
+
+[node name="Icon2" type="Sprite" parent="Imantado"]
+modulate = Color( 0.0588235, 1, 0.647059, 1 )
 scale = Vector2( 0.21875, 0.21875 )
 texture = ExtResource( 2 )
 
@@ -165,7 +170,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Imantado2" type="StaticBody2D" parent="."]
-position = Vector2( 375, -52 )
+position = Vector2( 363, -66 )
 collision_layer = 2
 collision_mask = 2
 __meta__ = {
@@ -173,9 +178,35 @@ __meta__ = {
 }
 
 [node name="Icon" type="Sprite" parent="Imantado2"]
-modulate = Color( 0, 1, 0.345098, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.28125, 0.28125 )
+texture = ExtResource( 2 )
+
+[node name="Icon2" type="Sprite" parent="Imantado2"]
+modulate = Color( 0.0588235, 1, 0.647059, 1 )
 scale = Vector2( 0.21875, 0.21875 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Imantado2"]
+shape = SubResource( 3 )
+
+[node name="Imantado3" type="StaticBody2D" parent="."]
+position = Vector2( 826, 11 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Icon" type="Sprite" parent="Imantado3"]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.28125, 0.28125 )
+texture = ExtResource( 2 )
+
+[node name="Icon2" type="Sprite" parent="Imantado3"]
+modulate = Color( 0.0588235, 1, 0.647059, 1 )
+scale = Vector2( 0.21875, 0.21875 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Imantado3"]
 shape = SubResource( 3 )
