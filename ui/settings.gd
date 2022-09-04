@@ -11,7 +11,9 @@ func _ready():
 	fullscreen.connect("toggled", self, "_on_fullscreen_toggled")
 	
 func _on_back_pressed():
-	get_tree().change_scene("res://ui/main_menu.tscn")
+	if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
+		print("error al cambiar de escena")
+	
 	
 func _on_fullscreen_toggled(button_pressed):
 	OS.set_window_fullscreen(button_pressed)
