@@ -9,7 +9,7 @@ var SPEED = 100
 var JUMP_SPEED = 200
 var JUMP_TIME = 0.15
 var GRAVITY = 10
-var FORCE = 500
+var FORCE = 23
 
 onready var zone = $Area2D
 onready var pivot = $Pivot
@@ -45,14 +45,14 @@ func _physics_process(delta):
 			print("error al cambiar de escena")
 			
 	#=======================================[MAGNETO]===========================================
-	if Input.is_action_just_pressed("attract"):
+	if Input.is_action_pressed("attract"):
 		if array != []:
 			var iman = array[0]
 			var direction = iman.position - position
 			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
 			velocity += direction.normalized()*FORCE
 			
-	if Input.is_action_just_pressed("push"):
+	if Input.is_action_pressed("push"):
 		if array != []:
 			var iman = array[0]
 			var direction = position - iman.position
