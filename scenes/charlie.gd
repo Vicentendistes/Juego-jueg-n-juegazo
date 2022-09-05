@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var velocity = Vector2()
 var timer = 0
 var array = []
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	var move_input = Input.get_axis("move_left", "move_right")
-	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta) 
+	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
 	if velocity.y < 500:
 		velocity.y +=  GRAVITY
 	
@@ -50,14 +51,18 @@ func _physics_process(delta):
 			var iman = array[0]
 			var direction = iman.position - position
 			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
-			velocity += direction.normalized()*FORCE
+			direction = direction.normalized()*FORCE
+			velocity += direction
+			iman.velocity -= direction
 			
 	if Input.is_action_pressed("push"):
 		if array != []:
 			var iman = array[0]
 			var direction = position - iman.position
 			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
-			velocity += direction.normalized()*FORCE
+			direction = direction.normalized()*FORCE
+			velocity += direction
+			iman.velocity -= direction
 	
 
 	
