@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Imantado",
+"language": "GDScript",
+"path": "res://scenes/imantado.gd"
+} ]
+_global_script_class_icons={
+"Imantado": ""
+}
+
 [application]
 
 config/name="Juego juegón juegazo"

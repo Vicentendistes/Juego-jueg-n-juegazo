@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+# This represents the player's inertia.
+export (int, 0, 200) var push = 20
 
 var velocity = Vector2()
 var timer = 0
@@ -11,6 +13,7 @@ var JUMP_SPEED = 200
 var JUMP_TIME = 0.15
 var GRAVITY = 10
 var FORCE = 23
+
 
 onready var zone = $Area2D
 onready var pivot = $Pivot
@@ -24,8 +27,11 @@ func _ready():
 
 
 func _physics_process(delta):
-	velocity = move_and_slide(velocity, Vector2.UP)
+	#velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
+			
+			
 	var move_input = Input.get_axis("move_left", "move_right")
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
 	if velocity.y < 500:
@@ -84,6 +90,14 @@ func _physics_process(delta):
 			playback.travel("fall")
 			
 	#==========================================[CAMERA]=========================================
+	# after calling move_and_slide()
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider is Imantado:
+			collision.collider.slide(-collision.normal * push) #KinematicBody
+			
+		if collision.collider.is_in_group("bodies"):
+			collision.collider.apply_central_impulse(-collision.normal * push) #RigidBody
 
 
 
