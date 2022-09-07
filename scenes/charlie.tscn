@@ -270,7 +270,8 @@ graph_offset = Vector2( -113.476, -72.1759 )
 [sub_resource type="CircleShape2D" id=22]
 radius = 119.0
 
-[node name="Charlie" type="KinematicBody2D"]
+[node name="Charlie" type="KinematicBody2D" groups=["Player"]]
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Node2D" parent="."]

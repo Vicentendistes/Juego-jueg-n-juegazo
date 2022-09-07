@@ -89,15 +89,16 @@ func _physics_process(delta):
 		else:
 			playback.travel("fall")
 			
-	#==========================================[CAMERA]=========================================
+	#==========================================[COLISIÓN]=========================================
 	# after calling move_and_slide()
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider is Imantado:
+			print(collision.collider.name)
 			collision.collider.slide(-collision.normal * push) #KinematicBody
-			
-		if collision.collider.is_in_group("bodies"):
-			collision.collider.apply_central_impulse(-collision.normal * push) #RigidBody
+			velocity += collision.normal * push
+		#if collision.collider.is_in_group("bodies"):
+		#	collision.collider.apply_central_impulse(-collision.normal * push) #RigidBody
 
 
 
@@ -113,3 +114,6 @@ func _on_Area2D_body_exited(body: Node):
 	sprite.self_modulate = Color(1, 1, 1, 0)
 	if body in array:
 		array.erase(body)
+		
+func slide(vector):
+	velocity += vector
