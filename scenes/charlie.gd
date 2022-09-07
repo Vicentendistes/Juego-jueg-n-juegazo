@@ -27,8 +27,8 @@ func _ready():
 
 
 func _physics_process(delta):
-	#velocity = move_and_slide(velocity, Vector2.UP)
-	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+	velocity = move_and_slide(velocity, Vector2.UP)
+	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
 			
 			
@@ -96,7 +96,6 @@ func _physics_process(delta):
 		if collision.collider is Imantado:
 			print(collision.collider.name)
 			collision.collider.slide(-collision.normal * push) #KinematicBody
-			velocity += collision.normal * push
 		#if collision.collider.is_in_group("bodies"):
 		#	collision.collider.apply_central_impulse(-collision.normal * push) #RigidBody
 
