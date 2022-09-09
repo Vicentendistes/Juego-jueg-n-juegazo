@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 # This represents the player's inertia.
-export (int, 0, 200) var push = 20
 
 var velocity = Vector2()
 var timer = 0
@@ -12,8 +11,9 @@ var SPEED = 100
 var JUMP_SPEED = 200
 var JUMP_TIME = 0.15
 var GRAVITY = 10
-var FORCE = 23
 
+var IMPULSE = 20
+var FORCE = 23
 
 onready var zone = $Area2D
 onready var pivot = $Pivot
@@ -27,6 +27,8 @@ func _ready():
 
 
 func _physics_process(delta):
+	var _is_atracting = false
+	#==========================================[VELOCIDAD]=========================================
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
@@ -54,9 +56,10 @@ func _physics_process(delta):
 	#=======================================[MAGNETO]===========================================
 	if Input.is_action_pressed("attract"):
 		if array != []:
+			_is_atracting = true
 			var iman = array[0]
 			var direction = iman.position - position
-			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
+			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
 			velocity += direction
 			iman.velocity -= direction
@@ -64,8 +67,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("push"):
 		if array != []:
 			var iman = array[0]
-			var direction = position - iman.position
-			direction = direction / (pow(iman.position.x - position.x, 2) + pow(iman.position.y - position.y, 2))
+			var direction = global_position - iman.position
+			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
 			velocity += direction
 			iman.velocity -= direction
@@ -94,10 +97,21 @@ func _physics_process(delta):
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider is Imantado:
-			print(collision.collider.name)
-			collision.collider.slide(-collision.normal * push) #KinematicBody
+			if collision.collider.global_position.y - global_position.y > 14:
+				print("arriba")
+				collision.collider.push(-collision.normal * velocity.length(), "y")
+				
+			elif collision.collider.global_position.y - global_position.y < -14:
+				print("abajo")
+				collision.collider.push(-collision.normal * IMPULSE, "x")
+			else:
+				print("en medio")
+				
+				
 		#if collision.collider.is_in_group("bodies"):
-		#	collision.collider.apply_central_impulse(-collision.normal * push) #RigidBody
+		#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBody
+			
+		
 
 
 
