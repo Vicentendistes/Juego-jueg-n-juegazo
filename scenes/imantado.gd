@@ -16,10 +16,11 @@ func _physics_process(delta):
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("Player"):
 			var difference = global_position - collision.collider.global_position
-			print(difference)
+			#print(difference)
 			if difference.y < -14:
-				print("choque")
-				push((difference).normalized()*IMPULSE, "x")
+				#print("choque")
+				collision.collider.push(-difference.normalized() * IMPULSE, "x")
+				push(difference.normalized() * IMPULSE, "x")
 	
 	
 func push(vector, t):

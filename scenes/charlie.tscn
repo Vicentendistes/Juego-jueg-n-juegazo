@@ -15,8 +15,9 @@
 [ext_resource path="res://scenes/cloud_layer.gd" type="Script" id=13]
 [ext_resource path="res://assets/ballBlue_10.png" type="Texture" id=14]
 
-[sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 6, 8 )
+[sub_resource type="CapsuleShape2D" id=23]
+radius = 5.0
+height = 6.0
 
 [sub_resource type="Animation" id=2]
 length = 0.001

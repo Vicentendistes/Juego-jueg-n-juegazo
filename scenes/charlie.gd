@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-# This represents the player's inertia.
-
 var velocity = Vector2()
 var timer = 0
 var array = []
@@ -28,17 +26,17 @@ func _ready():
 
 func _physics_process(delta):
 	var _is_atracting = false
-	#==========================================[VELOCIDAD]=========================================
+	#==========================================[BASIC CONTROLS]=========================================
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
-			
-			
+	#right and left movements
 	var move_input = Input.get_axis("move_left", "move_right")
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
 	if velocity.y < 500:
 		velocity.y +=  GRAVITY
 	
+	#jump
 	if timer > 0:
 		timer -= delta/JUMP_TIME
 	if Input.is_action_just_pressed("jump"):
@@ -49,7 +47,6 @@ func _physics_process(delta):
 	
 	#back to main menu
 	if Input.is_action_pressed("quit"):
-	# warning-ignore:return_value_discarded
 		if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
 			print("error al cambiar de escena")
 			
@@ -92,27 +89,28 @@ func _physics_process(delta):
 		else:
 			playback.travel("fall")
 			
-	#==========================================[COLISIÓN]=========================================
-	# after calling move_and_slide()
+	#==========================================[COLLISION]=========================================
+	#colitions with Imantado after calling move_and_slide()
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider is Imantado:
-			if collision.collider.global_position.y - global_position.y > 14:
-				print("arriba")
+			var difference = collision.collider.global_position.y - global_position.y
+			if  difference > 14:
+				#print("arriba")
 				collision.collider.push(-collision.normal * velocity.length(), "y")
 				
-			elif collision.collider.global_position.y - global_position.y < -14:
-				print("abajo")
-				collision.collider.push(-collision.normal * IMPULSE, "x")
+			elif difference < -14:
+				#print("abajo")
+				#collision.collider.push(-collision.normal * IMPULSE, "x")
+				pass
 			else:
-				print("en medio")
-				
+				#print("en medio")
+				pass
 				
 		#if collision.collider.is_in_group("bodies"):
 		#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBody
 			
 		
-
 
 
 #Alcance de la fuerza
@@ -127,6 +125,11 @@ func _on_Area2D_body_exited(body: Node):
 	sprite.self_modulate = Color(1, 1, 1, 0)
 	if body in array:
 		array.erase(body)
-		
-func slide(vector):
-	velocity += vector
+
+func push(vector, t):
+	if t=="x":
+		velocity.x += vector.x
+	if t=="y":
+		velocity.y += vector.y
+	if t=="xy":
+		velocity += vector
