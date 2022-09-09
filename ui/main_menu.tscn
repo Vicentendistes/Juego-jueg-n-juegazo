@@ -38,22 +38,22 @@ align = 1
 margin_top = 36.0
 margin_right = 462.0
 margin_bottom = 58.0
-text = "Play"
+text = "Jugar"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 margin_top = 62.0
 margin_right = 462.0
 margin_bottom = 84.0
-text = "Settings"
+text = "Configuración"
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 margin_top = 88.0
 margin_right = 462.0
 margin_bottom = 110.0
-text = "Credits"
+text = "Creditos"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 margin_top = 114.0
 margin_right = 462.0
 margin_bottom = 136.0
-text = "Exit"
+text = "Salir"
