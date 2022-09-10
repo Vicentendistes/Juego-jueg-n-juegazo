@@ -43,11 +43,6 @@ func _physics_process(delta):
 	if is_on_floor() and timer > 0:	
 		timer = 0
 		velocity.y = -JUMP_SPEED
-	
-	#back to main menu
-	if Input.is_action_pressed("quit"):
-		if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
-			print("error al cambiar de escena")
 			
 	#=======================================[MAGNETO]===========================================
 	
@@ -110,9 +105,6 @@ func _physics_process(delta):
 			playback.travel("jump")
 		else:
 			playback.travel("fall")
-			
-			
-		
 
 
 #Alcance de la fuerza
