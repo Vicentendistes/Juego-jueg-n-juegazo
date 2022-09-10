@@ -22,8 +22,10 @@ position = Vector2( 430, -103 )
 [node name="Imantado2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 173, -42 )
 scale = Vector2( 2, 2 )
-extents_x = 15
-extents_y = 15
+
+[node name="Imantado3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 742, -24 )
+scale = Vector2( 1.20416, 2.6781 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
 position = Vector2( 177, -86 )
