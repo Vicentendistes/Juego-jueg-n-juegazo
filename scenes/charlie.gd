@@ -11,7 +11,7 @@ var JUMP_TIME = 0.15
 var GRAVITY = 10
 
 var IMPULSE = 20
-var FORCE = 23
+var FORCE = 20
 
 onready var zone = $Area2D
 onready var pivot = $Pivot
@@ -25,7 +25,6 @@ func _ready():
 
 
 func _physics_process(delta):
-	var _is_atracting = false
 	#==========================================[BASIC CONTROLS]=========================================
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
@@ -51,25 +50,48 @@ func _physics_process(delta):
 			print("error al cambiar de escena")
 			
 	#=======================================[MAGNETO]===========================================
+	
+	var direction = Vector2()
 	if Input.is_action_pressed("attract"):
 		if array != []:
-			_is_atracting = true
 			var iman = array[0]
-			var direction = iman.position - position
+			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
-			velocity += direction
-			iman.velocity -= direction
+			velocity -= direction
+			iman.velocity += direction
 			
+		
 	if Input.is_action_pressed("push"):
 		if array != []:
 			var iman = array[0]
-			var direction = global_position - iman.position
+			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
 			velocity += direction
 			iman.velocity -= direction
 	
+	#==========================================[COLLISION]=========================================
+	#colitions with Imantado after calling move_and_slide()
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider is Imantado:
+			var difference = collision.collider.global_position.y - global_position.y
+			
+			if  difference > 7 + collision.collider.height:
+				#print("arriba")
+				collision.collider.push(-collision.normal * velocity.length(), "y")
+				
+			elif difference < -(7 + collision.collider.height):
+				#print("abajo")
+				#collision.collider.push(-collision.normal * IMPULSE, "x")
+				pass
+			else:
+				#print("en medio")
+				#collision.collider.push(-collision.normal * IMPULSE, "x")
+				pass
+		#if collision.collider.is_in_group("bodies"):
+		#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBody
 
 	
 	#========================================[ANIMATIONS]=======================================
@@ -79,7 +101,7 @@ func _physics_process(delta):
 		pivot.scale.x = -1
 	
 	if is_on_floor():
-		if abs(velocity.x)>10:
+		if abs(velocity.x)>25:
 			playback.travel("run")
 		else:
 			playback.travel("idle")
@@ -89,26 +111,6 @@ func _physics_process(delta):
 		else:
 			playback.travel("fall")
 			
-	#==========================================[COLLISION]=========================================
-	#colitions with Imantado after calling move_and_slide()
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider is Imantado:
-			var difference = collision.collider.global_position.y - global_position.y
-			if  difference > 14:
-				#print("arriba")
-				collision.collider.push(-collision.normal * velocity.length(), "y")
-				
-			elif difference < -14:
-				#print("abajo")
-				#collision.collider.push(-collision.normal * IMPULSE, "x")
-				pass
-			else:
-				#print("en medio")
-				pass
-				
-		#if collision.collider.is_in_group("bodies"):
-		#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBody
 			
 		
 

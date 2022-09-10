@@ -268,7 +268,7 @@ graph_offset = Vector2( -113.476, -72.1759 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [sub_resource type="CircleShape2D" id=22]
-radius = 119.0
+radius = 105.005
 
 [node name="Charlie" type="KinematicBody2D" groups=["Player"]]
 collision_mask = 0
@@ -389,5 +389,5 @@ shape = SubResource( 22 )
 
 [node name="BallBlue10" type="Sprite" parent="Area2D"]
 self_modulate = Color( 1, 1, 1, 0.14902 )
-scale = Vector2( 1.6, 1.6 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 14 )

@@ -2,10 +2,28 @@ extends KinematicBody2D
 
 class_name Imantado
 
+onready var collision_shape_2d = $CollisionShape2D
+onready var icon = $Icon
+onready var icon_2 = $Icon2
+export (int, 0, 50) onready var extents_x = 7
+export (int, 0, 50) onready var extents_y = 7
+
+
 var IMPULSE = 40
 var velocity = Vector2()
 var GRAVITY = 10
-var ACCELERATION = 500
+var ACCELERATION = 400
+var width
+var height
+
+func _ready():
+	collision_shape_2d.shape.set_extents(Vector2(extents_x, extents_y))
+	var shape_dimentions = collision_shape_2d.shape.get_extents()
+	width = shape_dimentions.x * self.scale.x
+	height = shape_dimentions.y * self.scale.y
+	icon.scale = shape_dimentions * 0.04
+	icon_2.scale = shape_dimentions * 0.032
+
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
