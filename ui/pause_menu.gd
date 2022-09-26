@@ -11,6 +11,11 @@ func _ready():
 	hide()
 	
 func _input(event):
+	if event.is_action_pressed("restart"):
+		if get_tree().reload_current_scene() != OK:
+			print("error al reiniciar de escena")
+		
+		
 	if event.is_action_pressed("quit"):
 		visible = !visible
 		get_tree().paused = visible

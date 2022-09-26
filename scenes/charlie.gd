@@ -25,7 +25,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	#==========================================[BASIC CONTROLS]=========================================
+	#==================================[BASIC CONTROLS]=========================================
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
@@ -49,7 +49,7 @@ func _physics_process(delta):
 	var direction = Vector2()
 	if Input.is_action_pressed("attract"):
 		if array != []:
-			var iman = array[0]
+			var iman = array.back()
 			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
@@ -59,7 +59,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("push"):
 		if array != []:
-			var iman = array[0]
+			var iman = array.back()
 			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
@@ -73,7 +73,7 @@ func _physics_process(delta):
 		if collision.collider is Imantado:
 			var difference = collision.collider.global_position.y - global_position.y
 			
-			if  difference > 7 + collision.collider.height:
+			if  difference > 7 + collision.collider.height and collision.collider.velocity.y < 400:
 				#print("arriba")
 				collision.collider.push(-collision.normal * velocity.length(), "y")
 				
@@ -110,11 +110,17 @@ func _physics_process(delta):
 #Alcance de la fuerza
 func _on_Area2D_body_entered(body: Node):
 	var sprite = body.get_node("Icon")
+	if array != []:
+		var sprite2 = array[0].get_node("Icon")
+		sprite2.self_modulate = Color(1, 1, 1, 0)
 	sprite.self_modulate = Color(1, 1, 1)
 	if not (body in array):
 		array.append(body)
 	
 func _on_Area2D_body_exited(body: Node):
+	if array != []:
+		var sprite2 = array[0].get_node("Icon")
+		sprite2.self_modulate = Color(1, 1, 1)
 	var sprite = body.get_node("Icon")
 	sprite.self_modulate = Color(1, 1, 1, 0)
 	if body in array:
