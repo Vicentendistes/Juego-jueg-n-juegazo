@@ -243,7 +243,7 @@ position = Vector2( 719, -48 )
 scale = Vector2( 1.47148, 6.11237 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
-position = Vector2( 155, -83 )
+position = Vector2( 162, -77 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 22 )
