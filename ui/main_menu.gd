@@ -1,9 +1,9 @@
 extends MarginContainer
 
-onready var play = $VBoxContainer/Play
-onready var credits = $VBoxContainer/Credits
-onready var exit = $VBoxContainer/Exit
-onready var settings = $VBoxContainer/Settings
+onready var play = get_node("%Play")
+onready var credits = get_node("%Credits")
+onready var exit = get_node("%Exit")
+onready var settings = get_node("%Settings")
 
 
 func _ready():
