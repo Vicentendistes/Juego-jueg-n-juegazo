@@ -232,15 +232,13 @@ script = ExtResource( 3 )
 Ball = ExtResource( 4 )
 
 [node name="Imantado" parent="." instance=ExtResource( 5 )]
-position = Vector2( 433, -92 )
+position = Vector2( 435, -101 )
 
 [node name="Imantado2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 224, -26 )
-scale = Vector2( 2, 2 )
+position = Vector2( 224, 16 )
 
 [node name="Imantado3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 719, -48 )
-scale = Vector2( 1.47148, 6.11237 )
+position = Vector2( 726, -20 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
 position = Vector2( 162, -77 )
