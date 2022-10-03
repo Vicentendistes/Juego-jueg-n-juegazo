@@ -48,8 +48,17 @@ func _physics_process(delta):
 	
 	var direction = Vector2()
 	if Input.is_action_pressed("attract"):
+		var minimo = 10000000
+		var numero = 0 
 		if array != []:
-			var iman = array.back()
+			for i in range(len(array)):
+				var a = global_position
+				var b = array[i].global_position
+				if (a-b).length() < minimo:
+					minimo = (a-b).length()
+					numero = i
+				
+			var iman = array[numero]
 			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
@@ -58,8 +67,17 @@ func _physics_process(delta):
 			
 		
 	if Input.is_action_pressed("push"):
+		var minimo = 10000000
+		var numero = 0 
 		if array != []:
-			var iman = array.back()
+			for i in range(len(array)):
+				var a = global_position
+				var b = array[i].global_position
+				if (a-b).length() < minimo:
+					minimo = (a-b).length()
+					numero = i
+		
+			var iman = array[numero]
 			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
