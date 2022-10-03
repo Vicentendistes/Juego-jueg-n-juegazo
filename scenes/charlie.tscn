@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/hooded figure asset pack/idle.png" type="Texture" id=1]
-[ext_resource path="res://scenes/charlie.gd" type="Script" id=2]
+[ext_resource path="res://scenes/scripts/charlie.gd" type="Script" id=2]
 [ext_resource path="res://assets/hooded figure asset pack/run.png" type="Texture" id=3]
 [ext_resource path="res://assets/hooded figure asset pack/jump.png" type="Texture" id=4]
 [ext_resource path="res://assets/hooded figure asset pack/fall.png" type="Texture" id=5]
@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains_lightened.png" type="Texture" id=10]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" type="Texture" id=11]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" type="Texture" id=12]
-[ext_resource path="res://scenes/cloud_layer.gd" type="Script" id=13]
+[ext_resource path="res://scenes/scripts/cloud_layer.gd" type="Script" id=13]
 [ext_resource path="res://assets/ballBlue_10.png" type="Texture" id=14]
 [ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=15]
 

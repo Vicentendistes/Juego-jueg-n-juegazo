@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Imantado",
 "language": "GDScript",
-"path": "res://scenes/imantado.gd"
+"path": "res://scenes/scripts/imantado.gd"
 } ]
 _global_script_class_icons={
 "Imantado": ""

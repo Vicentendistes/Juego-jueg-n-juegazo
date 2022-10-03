@@ -55,13 +55,17 @@ func _physics_process(delta):
 			var a = global_position
 			var b = array[i].global_position
 			var hola = array[i].get_node("Icon")
+			var hola2 = array[i].get_node("Iman_tex")
 			hola.self_modulate = Color(1,1,1,0)
+			hola2.aura(0)
 			if (a-b).length() < minimo:
 				minimo = (a-b).length()
 				numero = i
 		iman = array[numero]
 		var icon = iman.get_node("Icon")
 		icon.self_modulate = Color(1, 1, 1, 1)
+		var icon2 = iman.get_node("Iman_tex")
+		icon2.aura(5)
 	
 	if Input.is_action_pressed("attract"):
 		if iman != null:
@@ -84,7 +88,7 @@ func _physics_process(delta):
 	#colitions with Imantado after calling move_and_slide()
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
-		if collision.collider is Imantado:
+		if collision.collider.is_in_group("imantado"):
 			var difference = collision.collider.global_position.y - global_position.y
 			
 			if  difference > 7 + collision.collider.height and collision.collider.velocity.y < 400:
@@ -128,6 +132,8 @@ func _on_Area2D_body_entered(body: Node):
 func _on_Area2D_body_exited(body: Node):
 	var icon = body.get_node("Icon")
 	icon.self_modulate = Color(1, 1, 1, 0)
+	var icon2 = body.get_node("Iman_tex")
+	icon2.aura(0)
 	array.erase(body)
 
 func push(vector, t):
