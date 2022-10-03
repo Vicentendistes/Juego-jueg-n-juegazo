@@ -45,20 +45,26 @@ func _physics_process(delta):
 		velocity.y = -JUMP_SPEED
 			
 	#=======================================[MAGNETO]===========================================
-	
+	var iman = null
 	var direction = Vector2()
+	var minimo = 10000000
+	var numero = 0 
+	if array != []:
+		
+		for i in range(len(array)):
+			var a = global_position
+			var b = array[i].global_position
+			var hola = array[i].get_node("Icon")
+			hola.self_modulate = Color(1,1,1,0)
+			if (a-b).length() < minimo:
+				minimo = (a-b).length()
+				numero = i
+		iman = array[numero]
+		var icon = iman.get_node("Icon")
+		icon.self_modulate = Color(1, 1, 1, 1)
+	
 	if Input.is_action_pressed("attract"):
-		var minimo = 10000000
-		var numero = 0 
-		if array != []:
-			for i in range(len(array)):
-				var a = global_position
-				var b = array[i].global_position
-				if (a-b).length() < minimo:
-					minimo = (a-b).length()
-					numero = i
-				
-			var iman = array[numero]
+		if iman != null:
 			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
@@ -67,17 +73,7 @@ func _physics_process(delta):
 			
 		
 	if Input.is_action_pressed("push"):
-		var minimo = 10000000
-		var numero = 0 
-		if array != []:
-			for i in range(len(array)):
-				var a = global_position
-				var b = array[i].global_position
-				if (a-b).length() < minimo:
-					minimo = (a-b).length()
-					numero = i
-		
-			var iman = array[numero]
+		if iman != null:
 			direction = global_position - iman.position
 			direction /= direction.length_squared()
 			direction = direction.normalized()*FORCE
@@ -127,22 +123,12 @@ func _physics_process(delta):
 
 #Alcance de la fuerza
 func _on_Area2D_body_entered(body: Node):
-	var sprite = body.get_node("Icon")
-	if array != []:
-		var sprite2 = array[0].get_node("Icon")
-		sprite2.self_modulate = Color(1, 1, 1, 0)
-	sprite.self_modulate = Color(1, 1, 1)
-	if not (body in array):
-		array.append(body)
+	array.append(body)
 	
 func _on_Area2D_body_exited(body: Node):
-	if array != []:
-		var sprite2 = array[0].get_node("Icon")
-		sprite2.self_modulate = Color(1, 1, 1)
-	var sprite = body.get_node("Icon")
-	sprite.self_modulate = Color(1, 1, 1, 0)
-	if body in array:
-		array.erase(body)
+	var icon = body.get_node("Icon")
+	icon.self_modulate = Color(1, 1, 1, 0)
+	array.erase(body)
 
 func push(vector, t):
 	if t=="x":
