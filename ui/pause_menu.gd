@@ -12,6 +12,7 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("restart"):
+		get_tree().paused = false
 		if get_tree().reload_current_scene() != OK:
 			print("error al reiniciar de escena")
 		
