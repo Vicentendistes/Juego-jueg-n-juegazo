@@ -37,7 +37,7 @@ margin_right = 229.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 
-[node name="Node2D" parent="HBoxContainer/CenterContainer" instance=ExtResource( 4 )]
+[node name="player" parent="HBoxContainer/CenterContainer" instance=ExtResource( 4 )]
 position = Vector2( 102, 123 )
 scale = Vector2( 0.7, 0.7 )
 
