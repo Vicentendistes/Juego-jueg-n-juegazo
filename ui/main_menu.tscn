@@ -11,8 +11,8 @@
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_bg.png" type="Texture" id=9]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1_lightened.png" type="Texture" id=10]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" type="Texture" id=11]
-[ext_resource path="res://scenes/ParallaxLayer6.gd" type="Script" id=12]
-[ext_resource path="res://scenes/ParallaxLayer5.gd" type="Script" id=13]
+[ext_resource path="res://scenes/scripts/ParallaxLayer6.gd" type="Script" id=12]
+[ext_resource path="res://scenes/scripts/ParallaxLayer5.gd" type="Script" id=13]
 [ext_resource path="res://scenes/scripts/cloud_layer.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
@@ -85,9 +85,9 @@ margin_bottom = 152.0
 text = "Salir"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( 0, 147.85 )
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 147.85 )
+offset = Vector2( -2.594, 1.051 )
+scale = Vector2( 3.5, 3.5 )
+transform = Transform2D( 3.5, 0, 0, 3.5, -2.594, 1.051 )
 
 [node name="ParallaxLayer0" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 0.8 )

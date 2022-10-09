@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://scenes/ParallaxLayer6.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ParallaxLayer5.gd" type="Script" id=2]
+[ext_resource path="res://scenes/scripts/ParallaxLayer6.gd" type="Script" id=1]
+[ext_resource path="res://scenes/scripts/ParallaxLayer5.gd" type="Script" id=2]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" type="Texture" id=3]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_bg.png" type="Texture" id=4]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains_lightened.png" type="Texture" id=5]
@@ -13,6 +13,7 @@
 [ext_resource path="res://resources/theme.tres" type="Theme" id=11]
 [ext_resource path="res://ui/levels.gd" type="Script" id=12]
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/ballBlue_10.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -22,17 +23,25 @@ font_data = ExtResource( 13 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 11 )
+custom_constants/margin_right = 150
+custom_constants/margin_left = 150
 script = ExtResource( 12 )
 
+[node name="BallBlue10" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.231373 )
+position = Vector2( 256, 136 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 25.0
+margin_left = 150.0
 margin_top = 25.0
-margin_right = 487.0
+margin_right = 362.0
 margin_bottom = 263.0
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 462.0
+margin_right = 212.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 1 )
 text = "Niveles"
@@ -40,68 +49,88 @@ align = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 margin_top = 52.0
-margin_right = 462.0
+margin_right = 212.0
 margin_bottom = 124.0
 custom_constants/vseparation = 20
-custom_constants/hseparation = 20
-columns = 5
+custom_constants/hseparation = 14
+columns = 4
 
-[node name="Button" type="Button" parent="VBoxContainer/GridContainer"]
-margin_right = 77.0
+[node name="Button1" type="Button" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+margin_right = 43.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "1"
 
 [node name="Button2" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 97.0
-margin_right = 174.0
+unique_name_in_owner = true
+margin_left = 57.0
+margin_right = 100.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "2"
 
 [node name="Button3" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 194.0
-margin_right = 270.0
+unique_name_in_owner = true
+margin_left = 114.0
+margin_right = 156.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "3"
 
 [node name="Button4" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 290.0
-margin_right = 366.0
+unique_name_in_owner = true
+margin_left = 170.0
+margin_right = 212.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "4"
 
 [node name="Button5" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 386.0
-margin_right = 462.0
-margin_bottom = 26.0
+unique_name_in_owner = true
+margin_top = 46.0
+margin_right = 43.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 text = "5"
 
 [node name="Button6" type="Button" parent="VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 57.0
 margin_top = 46.0
-margin_right = 77.0
+margin_right = 100.0
 margin_bottom = 72.0
 size_flags_horizontal = 3
 text = "6"
 
 [node name="Button7" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 97.0
+unique_name_in_owner = true
+margin_left = 114.0
 margin_top = 46.0
-margin_right = 174.0
+margin_right = 156.0
 margin_bottom = 72.0
 size_flags_horizontal = 3
 text = "7"
 
 [node name="Button8" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 194.0
+unique_name_in_owner = true
+margin_left = 170.0
 margin_top = 46.0
-margin_right = 270.0
+margin_right = 212.0
 margin_bottom = 72.0
 size_flags_horizontal = 3
 text = "8"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 66.0
+margin_top = 144.0
+margin_right = 146.0
+margin_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 20.61
+text = "   volver   "
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 0, 147.85 )
