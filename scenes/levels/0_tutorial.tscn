@@ -1,19 +1,23 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=52 format=2]
 
-[ext_resource path="res://assets/Dungeon Ruins Tileset/Dungeon Ruins Tileset Day.png" type="Texture" id=1]
-[ext_resource path="res://scenes/charlie.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/imantado.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/charlie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/imantado.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Dungeon Ruins Tileset/Dungeon Ruins Tileset Day.png" type="Texture" id=3]
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://resources/theme.tres" type="Theme" id=5]
+[ext_resource path="res://scenes/scripts/deadzone.gd" type="Script" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 48, 32, 0, 32, 0, 0, 48, 0 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -24,13 +28,127 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=56]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=57]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=58]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=59]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=60]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=41]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=42]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=44]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=45]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=46]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=47]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=48]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=49]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=50]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=51]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=52]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=53]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=54]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=55]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=34]
 0/name = "Dungeon Ruins Tileset Day.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 16, 16, 48, 48 )
-0/tile_mode = 0
+0/region = Rect2( 80, 80, 48, 48 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 144, Vector2( 0, 1 ), 146, Vector2( 0, 2 ), 18, Vector2( 2, 0 ), 144, Vector2( 2, 1 ), 146, Vector2( 2, 2 ), 18 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
@@ -44,179 +162,436 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 1/name = "Dungeon Ruins Tileset Day.png 1"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 144, 16, 32, 32 )
-1/tile_mode = 0
+1/region = Rect2( 16, 80, 48, 48 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 1
+1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 48, Vector2( 0, 2 ), 48, Vector2( 1, 0 ), 56, Vector2( 1, 2 ), 56, Vector2( 2, 0 ), 24, Vector2( 2, 2 ), 24 ]
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 16, 16 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 2 )
+1/shape = SubResource( 7 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
-2/name = "Dungeon Ruins Tileset Day.png 2"
-2/texture = ExtResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 128, 224, 64, 16 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "Dungeon Ruins Tileset Day.png 3"
-3/texture = ExtResource( 1 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 80, 192, 32, 48 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
 4/name = "Dungeon Ruins Tileset Day.png 4"
-4/texture = ExtResource( 1 )
+4/texture = ExtResource( 3 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 448, 0, 64, 64 )
-4/tile_mode = 0
+4/region = Rect2( 240, 16, 32, 32 )
+4/tile_mode = 1
+4/autotile/bitmask_mode = 1
+4/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 54, Vector2( 1, 0 ), 216, Vector2( 1, 1 ), 27 ]
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 16, 16 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
 4/shape_offset = Vector2( 0, 0 )
 4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 30 )
 4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 4/z_index = 0
 5/name = "Dungeon Ruins Tileset Day.png 5"
-5/texture = ExtResource( 1 )
+5/texture = ExtResource( 3 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 16, 208, 48, 32 )
-5/tile_mode = 0
+5/region = Rect2( 192, 80, 80, 48 )
+5/tile_mode = 1
+5/autotile/bitmask_mode = 1
+5/autotile/bitmask_flags = [ Vector2( 0, 0 ), 48, Vector2( 1, 0 ), 56, Vector2( 1, 1 ), 146, Vector2( 2, 0 ), 184, Vector2( 2, 1 ), 146, Vector2( 2, 2 ), 18, Vector2( 3, 0 ), 56, Vector2( 3, 2 ), 144, Vector2( 4, 0 ), 24 ]
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 16, 16 )
+5/autotile/spacing = 0
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 4 )
+5/shape = SubResource( 56 )
 5/shape_one_way = false
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 56 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 57 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 58 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 59 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 60 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
 6/name = "Dungeon Ruins Tileset Day.png 6"
-6/texture = ExtResource( 1 )
+6/texture = ExtResource( 3 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 176, 112, 16, 16 )
-6/tile_mode = 0
+6/region = Rect2( 16, 16, 160, 48 )
+6/tile_mode = 1
+6/autotile/bitmask_mode = 1
+6/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 63, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 219, Vector2( 2, 2 ), 27, Vector2( 4, 0 ), 432, Vector2( 4, 1 ), 438, Vector2( 4, 2 ), 54, Vector2( 5, 0 ), 504, Vector2( 5, 2 ), 63, Vector2( 6, 0 ), 216, Vector2( 6, 1 ), 219, Vector2( 6, 2 ), 27, Vector2( 8, 0 ), 433, Vector2( 8, 1 ), 118, Vector2( 9, 0 ), 220, Vector2( 9, 1 ), 283 ]
+6/autotile/icon_coordinate = Vector2( 0, 0 )
+6/autotile/tile_size = Vector2( 16, 16 )
+6/autotile/spacing = 0
+6/autotile/occluder_map = [  ]
+6/autotile/navpoly_map = [  ]
+6/autotile/priority_map = [  ]
+6/autotile/z_index_map = [  ]
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape = SubResource( 35 )
 6/shape_one_way = false
-6/shape_one_way_margin = 0.0
-6/shapes = [  ]
-6/z_index = 0
-7/name = "Dungeon Ruins Tileset Day.png 7"
-7/texture = ExtResource( 1 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 80, 80, 16, 48 )
-7/tile_mode = 1
-7/autotile/bitmask_mode = 1
-7/autotile/bitmask_flags = [ Vector2( 0, 0 ), 144, Vector2( 0, 1 ), 146, Vector2( 0, 2 ), 18 ]
-7/autotile/icon_coordinate = Vector2( 0, 0 )
-7/autotile/tile_size = Vector2( 16, 16 )
-7/autotile/spacing = 0
-7/autotile/occluder_map = [  ]
-7/autotile/navpoly_map = [  ]
-7/autotile/priority_map = [  ]
-7/autotile/z_index_map = [  ]
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 5 )
-7/shape_one_way = false
-7/shape_one_way_margin = 1.0
-7/shapes = [ {
+6/shape_one_way_margin = 1.0
+6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 35 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 36 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 37 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 38 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 39 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 40 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 41 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 42 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 43 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 44 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 45 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 46 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 47 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 48 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 49 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 50 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 51 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 52 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 9, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 53 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 54 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 9, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 55 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-7/z_index = 0
+6/z_index = 0
+8/name = "Dungeon Ruins Tileset Day.png 8"
+8/texture = ExtResource( 3 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 288, 0, 48, 64 )
+8/tile_mode = 1
+8/autotile/bitmask_mode = 1
+8/autotile/bitmask_flags = [ Vector2( 0, 0 ), 48, Vector2( 1, 0 ), 56, Vector2( 2, 0 ), 144, Vector2( 2, 1 ), 146, Vector2( 2, 2 ), 146, Vector2( 2, 3 ), 18 ]
+8/autotile/icon_coordinate = Vector2( 0, 0 )
+8/autotile/tile_size = Vector2( 16, 16 )
+8/autotile/spacing = 0
+8/autotile/occluder_map = [  ]
+8/autotile/navpoly_map = [  ]
+8/autotile/priority_map = [  ]
+8/autotile/z_index_map = [  ]
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "Dungeon Ruins Tileset Day.png 9"
+9/texture = ExtResource( 3 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 240, 112, 16, 16 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=61]
 size = 8
 font_data = ExtResource( 4 )
 
-[node name="tutorial" type="Node"]
+[sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 1532, 60 )
 
-[node name="Imantado" parent="." instance=ExtResource( 3 )]
-position = Vector2( 176, 128 )
+[node name="tutorial" type="Node2D"]
 
-[node name="Charlie" parent="." instance=ExtResource( 2 )]
-position = Vector2( 40, 136 )
+[node name="Imantado" parent="." instance=ExtResource( 2 )]
+position = Vector2( 192, 0 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 34 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 196630, 7, 0, 196634, 7, 0, 262166, 7, 65536, 262167, 5, 0, 262170, 7, 65536, 327702, 7, 131072, 327704, 2, 0, 327706, 7, 131072, 393227, 6, 0, 393236, 1, 0, 393238, 1, 0, 393240, 1, 0, 393242, 1, 0, 458763, 6, 0, 524289, 2, 0, 589825, 0, 0, 589828, 0, 0, 589831, 0, 0, 589834, 0, 0 )
+tile_data = PoolIntArray( -262142, 5, 0, -262141, 5, 3, -262140, 5, 2, -262139, 5, 1, -262138, 5, 1, -262137, 5, 1, -262136, 5, 1, -262135, 5, 2, -262134, 5, 1, -262133, 5, 4, -262131, 5, 0, -262130, 5, 2, -262129, 5, 3, -262128, 5, 3, -262127, 5, 3, -262126, 5, 3, -262125, 5, 2, -262124, 5, 3, -262123, 5, 1, -262122, 5, 4, -196604, 5, 65538, -196599, 5, 65538, -196594, 5, 65538, -196589, 5, 65537, -131068, 5, 65538, -131063, 5, 65538, -131058, 5, 65538, -131053, 5, 65538, -65532, 5, 65537, -65527, 5, 65538, -65522, 5, 65538, -65517, 5, 65537, 4, 5, 131074, 9, 5, 131074, 14, 5, 131074, 19, 5, 131074, 131071, 6, 0, 65536, 6, 1, 65537, 6, 5, 65538, 6, 1, 65539, 6, 5, 65540, 6, 1, 65541, 6, 1, 65542, 6, 5, 65543, 6, 5, 65544, 6, 5, 65545, 6, 5, 65546, 6, 1, 65547, 6, 5, 65548, 6, 1, 65549, 6, 5, 65550, 6, 1, 65551, 6, 1, 65552, 6, 1, 65553, 6, 5, 65554, 6, 1, 65555, 6, 1, 65556, 6, 5, 65557, 6, 1, 65558, 6, 1, 65559, 6, 2, 65566, 6, 0, 65567, 6, 5, 65568, 6, 5, 65569, 6, 1, 65570, 6, 1, 65571, 6, 1, 65572, 6, 6, 196607, 6, 65536, 131072, 6, 65537, 131073, 6, 65537, 131074, 6, 65537, 131075, 6, 65537, 131076, 6, 65537, 131077, 6, 65537, 131078, 6, 65537, 131079, 6, 65537, 131080, 6, 65537, 131081, 6, 65537, 131082, 6, 65537, 131083, 6, 65537, 131084, 6, 65537, 131085, 6, 65537, 131086, 6, 65537, 131087, 6, 65537, 131088, 6, 65537, 131089, 6, 65537, 131090, 6, 65537, 131091, 6, 65537, 131092, 6, 65537, 131093, 6, 65537, 131094, 6, 65537, 131095, 6, 65542, 131102, 6, 65536, 131103, 6, 65537, 131104, 6, 65537, 131105, 6, 65537, 131106, 6, 65537, 131107, 6, 65537, 131108, 6, 0, 131109, 6, 2, 262143, 6, 65536, 196608, 6, 65537, 196609, 6, 65537, 196610, 6, 65537, 196611, 6, 65537, 196612, 6, 65537, 196613, 6, 65537, 196614, 6, 65537, 196615, 6, 65537, 196616, 6, 65537, 196617, 6, 65537, 196618, 6, 65537, 196619, 6, 65537, 196620, 6, 65537, 196621, 6, 65537, 196622, 6, 65537, 196623, 6, 65537, 196624, 6, 65537, 196625, 6, 65537, 196626, 6, 65537, 196627, 6, 65537, 196628, 6, 65537, 196629, 6, 65537, 196630, 6, 65537, 196631, 6, 65538, 196638, 6, 65536, 196639, 6, 65537, 196640, 6, 65537, 196641, 6, 65537, 196642, 6, 65537, 196643, 6, 65537, 196644, 6, 65537, 196645, 6, 0, 196646, 6, 2, 327679, 6, 65540, 262144, 6, 65537, 262145, 6, 65537, 262146, 6, 65537, 262147, 6, 65537, 262148, 6, 65537, 262149, 6, 65537, 262150, 6, 65537, 262151, 6, 65537, 262152, 6, 65537, 262153, 6, 65537, 262154, 6, 65537, 262155, 6, 65537, 262156, 6, 65537, 262157, 6, 65537, 262158, 6, 65537, 262159, 6, 65537, 262160, 6, 65537, 262161, 6, 65537, 262162, 6, 65537, 262163, 6, 65537, 262164, 6, 65537, 262165, 6, 65537, 262166, 6, 65537, 262167, 6, 65538, 262174, 6, 65536, 262175, 6, 65537, 262176, 6, 65537, 262177, 6, 65537, 262178, 6, 65537, 262179, 6, 65537, 262180, 6, 65537, 262181, 6, 65537, 262182, 6, 0, 262183, 6, 6, 393215, 6, 65540, 327680, 6, 65537, 327681, 6, 65537, 327682, 6, 65537, 327683, 6, 65537, 327684, 6, 65537, 327685, 6, 65537, 327686, 6, 65537, 327687, 6, 65537, 327688, 6, 65537, 327689, 6, 65537, 327690, 6, 65537, 327691, 6, 65537, 327692, 6, 65537, 327693, 6, 65537, 327694, 6, 65537, 327695, 6, 65537, 327696, 6, 65537, 327697, 6, 65537, 327698, 6, 65537, 327699, 6, 65537, 327700, 6, 65537, 327701, 6, 65537, 327702, 6, 65537, 327703, 6, 65542, 327710, 6, 65540, 327711, 6, 65537, 327712, 6, 65537, 327713, 6, 65537, 327714, 6, 65537, 327715, 6, 65537, 327716, 6, 65537, 327717, 6, 65537, 327718, 6, 65537, 327719, 6, 0, 327720, 6, 2, 458751, 6, 65540, 393216, 6, 65537, 393217, 6, 65537, 393218, 6, 65537, 393219, 6, 65537, 393220, 6, 65537, 393221, 6, 65537, 393222, 6, 65537, 393223, 6, 65537, 393224, 6, 65537, 393225, 6, 65537, 393226, 6, 65537, 393227, 6, 65537, 393228, 6, 65537, 393229, 6, 65537, 393230, 6, 65537, 393231, 6, 65537, 393232, 6, 65537, 393233, 6, 65537, 393234, 6, 65537, 393235, 6, 65537, 393236, 6, 65537, 393237, 6, 65537, 393238, 6, 65537, 393239, 6, 65542, 393246, 6, 65540, 393247, 6, 65537, 393248, 6, 65537, 393249, 6, 65537, 393250, 6, 65537, 393251, 6, 65537, 393252, 6, 65537, 393253, 6, 65537, 393254, 6, 65537, 393255, 6, 65537, 393256, 6, 0, 393257, 6, 2, 524287, 6, 65540, 458752, 6, 65537, 458753, 6, 65537, 458754, 6, 65537, 458755, 6, 65537, 458756, 6, 65537, 458757, 6, 65537, 458758, 6, 65537, 458759, 6, 65537, 458760, 6, 65537, 458761, 6, 65537, 458762, 6, 65537, 458763, 6, 65537, 458764, 6, 65537, 458765, 6, 65537, 458766, 6, 65537, 458767, 6, 65537, 458768, 6, 65537, 458769, 6, 65537, 458770, 6, 65537, 458771, 6, 65537, 458772, 6, 65537, 458773, 6, 65537, 458774, 6, 65537, 458775, 6, 65538, 458782, 6, 65540, 458783, 6, 65537, 458784, 6, 65537, 458785, 6, 65537, 458786, 6, 65537, 458787, 6, 65537, 458788, 6, 65537, 458789, 6, 65537, 458790, 6, 65537, 458791, 6, 65537, 458792, 6, 65537, 458793, 6, 0, 458794, 6, 1, 458795, 6, 1, 458796, 6, 5, 458797, 6, 1, 458798, 6, 1, 458799, 6, 5, 458800, 6, 6, 589823, 6, 131076, 524288, 6, 131077, 524289, 6, 131073, 524290, 6, 131077, 524291, 6, 131073, 524292, 6, 131077, 524293, 6, 131073, 524294, 6, 131073, 524295, 6, 131077, 524296, 6, 131073, 524297, 6, 131073, 524298, 6, 131073, 524299, 6, 131077, 524300, 6, 131073, 524301, 6, 131073, 524302, 6, 131073, 524303, 6, 131077, 524304, 6, 131073, 524305, 6, 131073, 524306, 6, 131077, 524307, 6, 131077, 524308, 6, 131077, 524309, 6, 131077, 524310, 6, 131077, 524311, 6, 131078, 524318, 6, 131076, 524319, 6, 131073, 524320, 6, 131077, 524321, 6, 131077, 524322, 6, 131073, 524323, 6, 131073, 524324, 6, 131077, 524325, 6, 131073, 524326, 6, 131077, 524327, 6, 131073, 524328, 6, 131073, 524329, 6, 131073, 524330, 6, 131077, 524331, 6, 131077, 524332, 6, 131077, 524333, 6, 131077, 524334, 6, 131077, 524335, 6, 131073, 524336, 6, 131074 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource( 34 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -262138, 8, 0, -262137, 8, 1, -262126, 8, 2, -196590, 8, 196610, 131071, 0, 2, 65536, 8, 0, 65538, 8, 0, 65540, 0, 2, 65541, 8, 2, 65544, 8, 2, 65545, 0, 2, 65550, 0, 2, 65552, 8, 2, 65554, 8, 0, 65555, 0, 0, 65558, 8, 1, 65559, 5, 0, 65560, 5, 3, 65561, 5, 1, 65562, 5, 1, 65563, 5, 3, 65564, 5, 3, 65565, 5, 1, 65566, 5, 4, 65569, 8, 0, 65571, 8, 2, 196607, 0, 65538, 131076, 0, 65538, 131077, 8, 196610, 131080, 8, 196610, 131081, 0, 65538, 131086, 0, 65538, 131088, 8, 196610, 131091, 0, 65536, 131102, 8, 2, 131103, 6, 0, 131104, 6, 5, 131105, 6, 1, 131106, 6, 2, 131107, 8, 196610, 262143, 0, 65538, 196609, 1, 131072, 196610, 1, 131074, 196612, 0, 65536, 196614, 1, 131072, 196615, 1, 131074, 196617, 0, 65536, 196619, 1, 131072, 196620, 1, 131074, 196622, 0, 65538, 196624, 1, 131072, 196625, 1, 131074, 196627, 0, 65536, 196629, 1, 0, 196630, 1, 2, 196638, 8, 65538, 196639, 6, 65540, 196640, 6, 65537, 196641, 6, 65537, 196642, 6, 65542, 327679, 0, 65536, 262148, 0, 65538, 262149, 8, 2, 262153, 0, 65538, 262158, 0, 65536, 262163, 0, 65536, 262174, 8, 65538, 262175, 6, 65540, 262176, 6, 65537, 262177, 6, 65537, 262178, 6, 0, 262179, 6, 6, 393215, 0, 65538, 327684, 0, 65538, 327685, 8, 196610, 327689, 0, 65538, 327694, 0, 65536, 327699, 0, 65538, 327710, 8, 196610, 327711, 6, 65536, 327712, 6, 65537, 327713, 6, 65537, 327714, 6, 65537, 327715, 6, 0, 327716, 6, 6, 458751, 0, 65538, 393217, 1, 131072, 393218, 1, 2, 393220, 0, 65536, 393222, 1, 131072, 393223, 1, 2, 393225, 0, 65538, 393227, 1, 0, 393228, 1, 131074, 393230, 0, 65538, 393232, 1, 131072, 393233, 1, 131074, 393235, 0, 65536, 393237, 1, 131072, 393238, 1, 131074, 393247, 6, 65536, 393248, 6, 65537, 393249, 6, 65537, 393250, 6, 65537, 393251, 6, 65537, 393252, 6, 65542, 524287, 0, 65536, 458756, 0, 65536, 458761, 0, 65536, 458766, 0, 65536, 458771, 0, 65536, 458783, 6, 131076, 458784, 6, 131077, 458785, 6, 131073, 458786, 6, 131073, 458787, 6, 131077, 458788, 6, 131078, 589823, 0, 131072, 524292, 0, 131074, 524297, 0, 131072, 524302, 0, 131074, 524307, 0, 131074 )
 __meta__ = {
-"_edit_lock_": true
+"_editor_description_": ""
 }
 
+[node name="Charlie" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 8 )
+
 [node name="Label" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 128.0
-margin_right = 196.0
-margin_bottom = 212.0
+margin_left = -64.0
+margin_top = -72.0
+margin_right = 108.0
+margin_bottom = 12.0
 theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 61 )
 text = "espacio para saltar
 <- para atraer
 -> para repeler"
 align = 1
 valign = 1
+
+[node name="DeadZone" type="Area2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="DeadZone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+position = Vector2( 980, 292 )
+shape = SubResource( 62 )

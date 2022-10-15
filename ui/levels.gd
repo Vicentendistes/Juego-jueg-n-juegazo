@@ -2,6 +2,7 @@ extends MarginContainer
 
 
 onready var back = get_node("%Back")
+onready var buttons = $VBoxContainer/GridContainer
 onready var levels = []
 
 
@@ -25,6 +26,17 @@ func _ready():
 	for i in range(len(levels)):
 		var level = get_node("%Button"+str(i+1))
 		level.connect("pressed", self, "_on_level_pressed", [i])
+		
+	#disabled unused buttons
+	var count = 1	
+	for button in buttons.get_children():
+		if count > len(levels):
+			button.disabled = true
+		count +=1
+		
+	#focus level 1
+	var level1 =  get_node("%Button1")
+	level1.grab_focus()
 	
 
 func _on_back_pressed():

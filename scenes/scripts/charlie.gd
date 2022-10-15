@@ -143,3 +143,4 @@ func push(vector, t):
 		velocity.y += vector.y
 	if t=="xy":
 		velocity += vector
+		
