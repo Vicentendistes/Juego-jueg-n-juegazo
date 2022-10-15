@@ -11,6 +11,7 @@
 
 [resource]
 frames = 8
+pause = true
 frame_0/texture = ExtResource( 3 )
 frame_1/texture = ExtResource( 5 )
 frame_1/delay_sec = 0.0

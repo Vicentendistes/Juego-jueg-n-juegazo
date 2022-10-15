@@ -32,8 +32,7 @@ func _physics_process(delta):
 	#right and left movements
 	var move_input = Input.get_axis("move_left", "move_right")
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
-	if velocity.y < 500:
-		velocity.y +=  GRAVITY
+	velocity.y +=  GRAVITY
 	
 	#jump
 	if timer > 0:
