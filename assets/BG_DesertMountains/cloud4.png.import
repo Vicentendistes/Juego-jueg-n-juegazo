@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlatformerTileset_3.png-c7b92c20985ab861036bfa3d4c238ee9.stex"
+path="res://.import/cloud4.png-fc7ed66211adc7e69856ddfee90fa04b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PlatformerTileset_3.png"
-dest_files=[ "res://.import/PlatformerTileset_3.png-c7b92c20985ab861036bfa3d4c238ee9.stex" ]
+source_file="res://assets/BG_DesertMountains/cloud4.png"
+dest_files=[ "res://.import/cloud4.png-fc7ed66211adc7e69856ddfee90fa04b.stex" ]
 
 [params]
 

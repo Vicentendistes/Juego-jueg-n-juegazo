@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/imantado_pixel_0.png-c3dd7aca5f83e722d0346d1e515ed5fa.stex"
+path="res://.import/ballBlue_10.png-50bd09e88418c35213222846c3c041c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/imantado_pixel_0.png"
-dest_files=[ "res://.import/imantado_pixel_0.png-c3dd7aca5f83e722d0346d1e515ed5fa.stex" ]
+source_file="res://assets/Varios/ballBlue_10.png"
+dest_files=[ "res://.import/ballBlue_10.png-50bd09e88418c35213222846c3c041c6.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Imantado_pixel_prueba_2.png-214ff9b66c5ee9d6cb3613f4079527bc.stex"
+path="res://.import/background2.png-09f44fa9c1466e5e16c8aaa2ebcc5683.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Imantado_pixel_prueba_2.png"
-dest_files=[ "res://.import/Imantado_pixel_prueba_2.png-214ff9b66c5ee9d6cb3613f4079527bc.stex" ]
+source_file="res://assets/BG_DesertMountains/background2.png"
+dest_files=[ "res://.import/background2.png-09f44fa9c1466e5e16c8aaa2ebcc5683.stex" ]
 
 [params]
 

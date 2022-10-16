@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="Juego juegón juegazo"
 run/main_scene="res://ui/main_menu.tscn"
-config/icon="res://assets/icon.png"
+config/icon="res://assets/Varios/icon.png"
 
 [display]
 

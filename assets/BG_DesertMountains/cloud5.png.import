@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ballBlue_10.png-a6ac20f1eeff46860499a0f8c7bba4ff.stex"
+path="res://.import/cloud5.png-bbd09f4506aeb9a66f12325aa8cf19cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ballBlue_10.png"
-dest_files=[ "res://.import/ballBlue_10.png-a6ac20f1eeff46860499a0f8c7bba4ff.stex" ]
+source_file="res://assets/BG_DesertMountains/cloud5.png"
+dest_files=[ "res://.import/cloud5.png-bbd09f4506aeb9a66f12325aa8cf19cb.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circulo_rojo.png-081229cce5bccb0202e3f874322365e4.stex"
+path="res://.import/cloud2.png-51fa53695057f42191fe1dcbab50d4b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/circulo_rojo.png"
-dest_files=[ "res://.import/circulo_rojo.png-081229cce5bccb0202e3f874322365e4.stex" ]
+source_file="res://assets/BG_DesertMountains/cloud2.png"
+dest_files=[ "res://.import/cloud2.png-51fa53695057f42191fe1dcbab50d4b8.stex" ]
 
 [params]
 

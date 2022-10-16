@@ -1,50 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/Varios/icon.png" type="Texture" id=1]
 [ext_resource path="res://scenes/scripts/imantado.gd" type="Script" id=2]
-[ext_resource path="res://assets/Imantado_pixel_prueba_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Varios/Imantado_pixel_prueba_2.png" type="Texture" id=3]
 [ext_resource path="res://scenes/scripts/Iman_tex.gd" type="Script" id=4]
-
-[sub_resource type="Shader" id=2]
-code = "shader_type canvas_item;
-render_mode blend_premul_alpha;
-
-// This shader only works properly with premultiplied alpha blend mode.
-uniform float aura_width = 2.0;
-uniform vec4 aura_color: hint_color;
-
-void fragment() {
-	vec4 col = texture(TEXTURE, UV);
-	vec2 ps = TEXTURE_PIXEL_SIZE;
-	float a;
-	float maxa = col.a;
-	float mina = col.a;
-
-	a = texture(TEXTURE, UV + vec2(0.0, -aura_width) * ps).a;
-	maxa = max(a, maxa);
-	mina = min(a, mina);
-
-	a = texture(TEXTURE, UV + vec2(0.0, aura_width) * ps).a;
-	maxa = max(a, maxa);
-	mina = min(a, mina);
-
-	a = texture(TEXTURE, UV + vec2(-aura_width, 0.0) * ps).a;
-	maxa = max(a, maxa);
-	mina = min(a, mina);
-
-	a = texture(TEXTURE, UV + vec2(aura_width, 0.0) * ps).a;
-	maxa = max(a, maxa);
-	mina = min(a, mina);
-
-	col.rgb *= col.a;
-
-	COLOR = col;
-	COLOR.rgb += aura_color.rgb * (maxa - mina);
-}"
+[ext_resource path="res://shaders/imantado.gdshader" type="Shader" id=5]
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
-shader = SubResource( 2 )
+shader = ExtResource( 5 )
 shader_param/aura_width = 5.0
 shader_param/aura_color = Color( 0, 0.929412, 1, 1 )
 

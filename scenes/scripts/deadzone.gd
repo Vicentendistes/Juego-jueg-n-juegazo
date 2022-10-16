@@ -8,4 +8,5 @@ func _ready():
 		print("error al conectar")
 	
 func _on_DeadZone_body_entered(body: Node):
-	body.global_position = respawn.position
+	if body.is_in_group("Player"):
+		body.global_position = respawn.position

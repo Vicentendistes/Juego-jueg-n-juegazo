@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/UI-03.png" type="Texture" id=2]
-[ext_resource path="res://assets/UI-04.png" type="Texture" id=3]
+[ext_resource path="res://assets/Varios/UI-03.png" type="Texture" id=2]
+[ext_resource path="res://assets/Varios/UI-04.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 2 )

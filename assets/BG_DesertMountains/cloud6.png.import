@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UI-03.png-c09e87cf188540588e5daf25b7a21f7e.stex"
+path="res://.import/cloud6.png-9b4a49121148800baa765412ef0799ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI-03.png"
-dest_files=[ "res://.import/UI-03.png-c09e87cf188540588e5daf25b7a21f7e.stex" ]
+source_file="res://assets/BG_DesertMountains/cloud6.png"
+dest_files=[ "res://.import/cloud6.png-9b4a49121148800baa765412ef0799ff.stex" ]
 
 [params]
 
