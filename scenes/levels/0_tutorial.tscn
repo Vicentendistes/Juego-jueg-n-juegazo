@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://scenes/charlie0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/imantado_0.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://resources/theme.tres" type="Theme" id=5]
 [ext_resource path="res://scenes/scripts/deadzone.gd" type="Script" id=6]
+[ext_resource path="res://scenes/change_level.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1311,3 +1312,6 @@ position = Vector2( 1544, 80 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
 position = Vector2( 112, -8 )
+
+[node name="Change_Level" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1912, -64 )
