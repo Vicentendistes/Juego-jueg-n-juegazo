@@ -353,7 +353,7 @@ position = Vector2( 110, -2 )
 position = Vector2( 775, -162 )
 
 [node name="Imantado3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1498, -167 )
+position = Vector2( 1309, -160 )
 
 [node name="Imantado4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1591, -241 )
