@@ -15,8 +15,8 @@
 [ext_resource path="res://scenes/scripts/cloud_layer.gd" type="Script" id=13]
 [ext_resource path="res://assets/ballBlue_10.png" type="Texture" id=14]
 [ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/ParallaxLayer6.gd" type="Script" id=16]
-[ext_resource path="res://scenes/ParallaxLayer5.gd" type="Script" id=17]
+[ext_resource path="res://scenes/scripts/ParallaxLayer6.gd" type="Script" id=16]
+[ext_resource path="res://scenes/scripts/ParallaxLayer5.gd" type="Script" id=17]
 
 [sub_resource type="CapsuleShape2D" id=23]
 radius = 5.0
@@ -395,6 +395,7 @@ position = Vector2( 51, -27 )
 [node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset"]
 current = true
 process_mode = 0
+limit_left = 0
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true

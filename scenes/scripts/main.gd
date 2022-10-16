@@ -1,6 +1,5 @@
 extends Node2D
 
-
 export (PackedScene) var Ball
 
 func _input(event):

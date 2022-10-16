@@ -14,7 +14,7 @@ func _ready():
 	play.grab_focus()
 	
 func _on_play_pressed():
-	if get_tree().change_scene("res://scenes/main.tscn") != OK:
+	if get_tree().change_scene("res://ui/levels.tscn") != OK:
 		print("error al cambiar de escena")
 	
 func _on_settings_pressed():
@@ -22,8 +22,9 @@ func _on_settings_pressed():
 		print("error al cambiar de escena")
 	
 func _on_credits_pressed():
-	if get_tree().change_scene("res://scenes/level_01.tscn") != OK:
-		print("error al cambiar de escena")
+	print("faltan los creditos")
+	#if get_tree().change_scene() != OK:
+	#	print("error al cambiar de escena")
 	
 func _on_exit_pressed():
 	get_tree().quit()

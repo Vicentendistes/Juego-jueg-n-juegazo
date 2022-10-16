@@ -1,17 +1,26 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/UI-03.png" type="Texture" id=2]
 [ext_resource path="res://assets/UI-04.png" type="Texture" id=3]
 
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 793, 205 )
+modulate_color = Color( 0.341176, 0.427451, 0.592157, 1 )
+
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 draw_center = false
-border_color = Color( 1, 1, 1, 0.368627 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 shadow_color = Color( 0, 0, 0, 0.4 )
 shadow_size = 4
 
@@ -42,7 +51,7 @@ Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
-Button/constants/hseparation = 2
+Button/styles/disabled = SubResource( 10 )
 Button/styles/focus = SubResource( 9 )
 Button/styles/hover = SubResource( 8 )
 Button/styles/normal = SubResource( 2 )
