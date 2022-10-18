@@ -2,12 +2,14 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var timer = 0
+var timer2 = 0
+var left_floor = false
 var array = []
 
 var ACCELERATION = 900 
 var SPEED = 100
 var JUMP_SPEED = 200
-var JUMP_TIME = 0.15
+var JUMP_TIME = 0.13
 var GRAVITY = 10
 
 var IMPULSE = 20
@@ -38,10 +40,21 @@ func _physics_process(delta):
 	if timer > 0:
 		timer -= delta/JUMP_TIME
 	if Input.is_action_just_pressed("jump"):
+		if timer2 > 0:
+			velocity.y = -JUMP_SPEED
+			timer2 = 0
 		timer = 1
-	if is_on_floor() and timer > 0:	
-		timer = 0
-		velocity.y = -JUMP_SPEED
+	if is_on_floor():
+		left_floor = false
+		if timer > 0:
+			timer = 0
+			velocity.y = -JUMP_SPEED
+			left_floor = true
+	if not is_on_floor():
+		timer2 -= delta/JUMP_TIME
+	if not(left_floor or is_on_floor()):
+		timer2 = 1
+		left_floor = true
 			
 	#=======================================[MAGNETO]===========================================
 	var iman = null

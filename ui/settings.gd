@@ -1,7 +1,7 @@
 extends MarginContainer
 
-onready var fullscreen = $VBoxContainer/HBoxContainer/Fullscreen
-onready var back = $VBoxContainer/Back
+onready var fullscreen = $"%Fullscreen"
+onready var back = $"%Back"
 
 func _ready():
 	if OS.window_fullscreen:

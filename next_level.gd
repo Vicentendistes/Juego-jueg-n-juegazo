@@ -30,5 +30,7 @@ func _ready():
 func _on_hitbox_body_entered(_body, i):
 	if i< len(levels) and get_tree().change_scene(levels[i]) != OK:
 		print("error al cambiar de escena")
+	if i == len(levels) and get_tree().change_scene("res://ui/levels.tscn") != OK:
+			print("error al cambiar de escena")
 		
 	

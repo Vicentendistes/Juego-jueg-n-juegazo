@@ -374,6 +374,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource( 22 )
 
 [node name="BallBlue10" type="Sprite" parent="Area2D"]
