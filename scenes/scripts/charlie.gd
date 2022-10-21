@@ -78,7 +78,8 @@ func _physics_process(delta):
 		icon.self_modulate = Color(1, 1, 1, 1)
 		var icon2 = iman.get_node("Iman_tex")
 		icon2.aura(5)
-	
+		iman.interact = false
+		
 	if Input.is_action_pressed("attract"):
 		if iman != null:
 			direction = global_position - iman.position
@@ -86,6 +87,7 @@ func _physics_process(delta):
 			direction = direction.normalized()*FORCE
 			velocity -= direction
 			iman.velocity += direction
+			iman.interact = true
 			
 		
 	if Input.is_action_pressed("push"):
@@ -95,6 +97,7 @@ func _physics_process(delta):
 			direction = direction.normalized()*FORCE
 			velocity += direction
 			iman.velocity -= direction
+			iman.interact = true
 	
 	#==========================================[COLLISION]=========================================
 	#colitions with Imantado after calling move_and_slide()

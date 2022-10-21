@@ -11,6 +11,7 @@ onready var shape_dimentions = collision_shape_2d.shape.get_extents()
 onready var width = shape_dimentions.x * self.scale.x
 onready var height = shape_dimentions.y * self.scale.y
 onready var ACCELERATION = 300*self.scale.x * self.scale.y + 200
+onready var interact = false
 
 var velocity = Vector2()
 var IMPULSE = 40
@@ -21,7 +22,10 @@ var GRAVITY = 10
 func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
-	velocity.x = move_toward(velocity.x, 0, ACCELERATION*delta)
+	if not interact:
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION*delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION*0.5*delta)
 	if velocity.y < 500:
 		velocity.y +=  GRAVITY
 	for index in get_slide_count():
