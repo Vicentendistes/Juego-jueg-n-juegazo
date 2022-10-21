@@ -4,6 +4,7 @@ class_name Imantado
 
 onready var collision_shape_2d = $CollisionShape2D
 onready var sprite = $Icon
+onready var respawn = global_position
 #export (int, 0, 50) onready var extents_x = 7
 #export (int, 0, 50) onready var extents_y = 7
 

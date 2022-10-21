@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://resources/theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/settings.gd" type="Script" id=2]
@@ -13,10 +13,46 @@
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains_lightened.png" type="Texture" id=11]
 [ext_resource path="res://assets/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" type="Texture" id=12]
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/Varios/UI-3.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 205, 205 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+modulate_color = Color( 0.290196, 0.509804, 0.921569, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 205, 205 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+modulate_color = Color( 0.290196, 0.509804, 0.921569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 205, 205 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+modulate_color = Color( 0.290196, 0.509804, 0.921569, 1 )
 
 [node name="Settings" type="MarginContainer"]
 anchor_right = 1.0
@@ -58,6 +94,10 @@ unique_name_in_owner = true
 margin_left = 96.0
 margin_right = 112.0
 margin_bottom = 26.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 212.0

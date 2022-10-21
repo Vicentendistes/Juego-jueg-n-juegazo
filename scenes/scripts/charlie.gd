@@ -15,6 +15,7 @@ var GRAVITY = 10
 var IMPULSE = 20
 var FORCE = 20
 
+onready var respawn = global_position
 onready var zone = $Area2D
 onready var pivot = $Pivot
 onready var anim_tree = $AnimationTree
