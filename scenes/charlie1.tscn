@@ -367,26 +367,22 @@ motion_scale = Vector2( 0.6, 0 )
 motion_mirroring = Vector2( 80, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
-position = Vector2( 0, -208 )
-scale = Vector2( 1, 2 )
+position = Vector2( 0, -32 )
 texture = ExtResource( 9 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
-position = Vector2( 160, -208 )
-scale = Vector2( 1, 2 )
+position = Vector2( 160, -32 )
 texture = ExtResource( 9 )
 centered = false
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
-position = Vector2( 320, -208 )
-scale = Vector2( 1, 2 )
+position = Vector2( 320, -32 )
 texture = ExtResource( 9 )
 centered = false
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
-position = Vector2( 480, -208 )
-scale = Vector2( 1, 2 )
+position = Vector2( 480, -32 )
 texture = ExtResource( 9 )
 centered = false
 
@@ -397,6 +393,7 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="CameraOffset" type="Position2D" parent="Pivot"]
+visible = false
 position = Vector2( 56, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset"]
@@ -413,6 +410,7 @@ drag_margin_bottom = 0.15
 editor_draw_drag_margin = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 23 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -432,6 +430,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource( 22 )
 
 [node name="BallBlue10" type="Sprite" parent="Area2D"]

@@ -26,7 +26,10 @@ func _physics_process(delta):
 	if not interact:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION*delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, ACCELERATION*0.5*delta)
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, ACCELERATION*delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, ACCELERATION*0.5*delta)
 	if velocity.y < 500:
 		velocity.y +=  GRAVITY
 	for index in get_slide_count():
