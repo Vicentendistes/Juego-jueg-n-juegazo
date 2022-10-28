@@ -24,6 +24,10 @@ config/name="Juego juegón juegazo"
 run/main_scene="res://ui/main_menu.tscn"
 config/icon="res://assets/Varios/icon.png"
 
+[autoload]
+
+MusicController="*res://autoloads/Music_Controller.tscn"
+
 [display]
 
 window/size/width=512

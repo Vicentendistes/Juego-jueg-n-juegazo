@@ -1,19 +1,20 @@
 extends KinematicBody2D
 
+#variables
 var velocity = Vector2()
 var timer = 0
 var timer2 = 0
 var left_floor = false
 var array = []
 
+#constants
 var ACCELERATION = 900 
 var SPEED = 100
 var JUMP_SPEED = 200
-var JUMP_TIME = 0.13
 var GRAVITY = 10
-
 var IMPULSE = 20
 var FORCE = 20
+var JUMP_TIME = 0.13
 
 onready var respawn = global_position
 onready var zone = $Area2D
@@ -22,7 +23,14 @@ onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 
 func _ready():
+	var level_type = self.get_parent().name
+	#play music if is in the special scene or is not already playing
+	if not MusicController.playing_snow and  level_type == "Snow":
+		MusicController.play_snow_music()
+	if not MusicController.playing_dirt and level_type == "Dirt":
+		MusicController.play_dirt_music()
 	anim_tree.active = true
+	#connects Area2D of imantado
 	zone.connect("body_entered", self, "_on_Area2D_body_entered")
 	zone.connect("body_exited", self, "_on_Area2D_body_exited")
 
@@ -37,7 +45,7 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
 	velocity.y +=  GRAVITY
 	
-	#jump
+	#jump with coyoter time and prejump
 	if timer > 0:
 		timer -= delta/JUMP_TIME
 	if Input.is_action_just_pressed("jump"):
@@ -67,18 +75,14 @@ func _physics_process(delta):
 		for i in range(len(array)):
 			var a = global_position
 			var b = array[i].global_position
-			var hola = array[i].get_node("Icon")
-			var hola2 = array[i].get_node("Iman_tex")
-			hola.self_modulate = Color(1,1,1,0)
-			hola2.aura(0)
+			var iman_texture = array[i].get_node("Iman_tex")
+			iman_texture.aura(0)
 			if (a-b).length() < minimo:
 				minimo = (a-b).length()
 				numero = i
 		iman = array[numero]
-		var icon = iman.get_node("Icon")
-		icon.self_modulate = Color(1, 1, 1, 1)
-		var icon2 = iman.get_node("Iman_tex")
-		icon2.aura(5)
+		var iman_texture = iman.get_node("Iman_tex")
+		iman_texture.aura(5)
 		iman.interact = false
 		
 	if Input.is_action_pressed("attract"):
@@ -124,6 +128,7 @@ func _physics_process(delta):
 
 	
 	#========================================[ANIMATIONS]=======================================
+	#change pivot when moving in one direction
 	if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
 		pivot.scale.x = 1
 	if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
@@ -141,13 +146,12 @@ func _physics_process(delta):
 			playback.travel("fall")
 
 
-#Alcance de la fuerza
+#if entered imantado append
 func _on_Area2D_body_entered(body: Node):
 	array.append(body)
-	
+
+#if exited imantado erase
 func _on_Area2D_body_exited(body: Node):
-	var icon = body.get_node("Icon")
-	icon.self_modulate = Color(1, 1, 1, 0)
 	var icon2 = body.get_node("Iman_tex")
 	icon2.aura(0)
 	array.erase(body)

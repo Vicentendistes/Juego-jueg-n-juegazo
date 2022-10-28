@@ -8,6 +8,8 @@ onready var levels = []
 
 
 func _ready():
+	if not MusicController.playing_menu:
+		MusicController.play_menu_music()
 	back.connect("pressed", self, "_on_back_pressed")
 	
 	#checks levels folder and add path to levels list

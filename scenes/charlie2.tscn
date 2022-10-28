@@ -18,7 +18,6 @@
 [ext_resource path="res://resources/water_animated_texture.tres" type="Texture" id=16]
 [ext_resource path="res://assets/Rocky Roads/water_8frames.png" type="Texture" id=17]
 
-
 [sub_resource type="TileSet" id=24]
 0/name = "water_8frames.png 0"
 0/texture = ExtResource( 17 )
