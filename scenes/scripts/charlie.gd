@@ -23,12 +23,9 @@ onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 
 func _ready():
-	var level_type = self.get_parent().name
-	#play music if is in the special scene or is not already playing
-	if not MusicController.playing_snow and  level_type == "Snow":
-		MusicController.play_snow_music()
-	if not MusicController.playing_dirt and level_type == "Dirt":
-		MusicController.play_dirt_music()
+	#play music
+	MusicController.play_music(self)
+	#play animation tree
 	anim_tree.active = true
 	#connects Area2D of imantado
 	zone.connect("body_entered", self, "_on_Area2D_body_entered")
@@ -145,7 +142,7 @@ func _physics_process(delta):
 		else:
 			playback.travel("fall")
 
-
+#========================================[IMANTADO SIGNALS]=======================================
 #if entered imantado append
 func _on_Area2D_body_entered(body: Node):
 	array.append(body)

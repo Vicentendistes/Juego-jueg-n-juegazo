@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://scenes/charlie1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/imantado.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player/charlie1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/imantado/imantado_tierra.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Rocky Roads/tileset forest.png" type="Texture" id=3]
 [ext_resource path="res://scenes/scripts/deadzone.gd" type="Script" id=4]
 [ext_resource path="res://scenes/change_level.tscn" type="PackedScene" id=5]
@@ -342,15 +342,6 @@ extents = Vector2( 1688, 88 )
 
 [node name="Dirt" type="Node"]
 
-[node name="Imantado" parent="." instance=ExtResource( 2 )]
-position = Vector2( 176, 128 )
-
-[node name="Imantado2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 400, 48 )
-
-[node name="Imantado3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 768, 64 )
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, 1 )
 tile_set = SubResource( 36 )
@@ -373,3 +364,12 @@ position = Vector2( 1072, -336 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 136 )
+
+[node name="Imantado" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 128 )
+
+[node name="Imantado2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 368, 48 )
+
+[node name="Imantado3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 64 )

@@ -4,8 +4,9 @@ class_name Imantado
 
 onready var collision_shape_2d = $CollisionShape2D
 onready var respawn = global_position
-#export (int, 0, 50) onready var extents_x = 7
-#export (int, 0, 50) onready var extents_y = 7
+onready var dust = $Pivot/Dust
+onready var pivot = $Pivot
+
 
 onready var shape_dimentions = collision_shape_2d.shape.get_extents()
 onready var width = shape_dimentions.x * self.scale.x
@@ -18,10 +19,11 @@ var IMPULSE = 40
 var GRAVITY = 10
 
 
-
 func _physics_process(delta):
+	#move and slide
 	velocity = move_and_slide(velocity, Vector2.UP)
-	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+	
+	#more drag when not interacting or when is on floor
 	if not interact:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION*delta)
 	else:
@@ -29,8 +31,22 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION*delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION*0.5*delta)
+	
+	#dust particles emitting conditions
+	if is_on_floor() and abs(velocity.x)>50:
+		if velocity.x>0:
+			pivot.scale.x = 1
+		else:
+			pivot.scale.x = -1
+		dust.emitting = true
+	else:
+		dust.emitting = false 
+			
+	#solve multiples player hits from above
 	if velocity.y < 500:
 		velocity.y +=  GRAVITY
+		
+	#collitions
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("Player"):
@@ -45,7 +61,7 @@ func _physics_process(delta):
 			var difference = global_position - collision.collider.global_position
 			collision.collider.push(-difference.normalized() * IMPULSE, "x")
 	
-	
+#auxiliar function collitions
 func push(vector, t):
 	if t=="x":
 		velocity.x += vector.x

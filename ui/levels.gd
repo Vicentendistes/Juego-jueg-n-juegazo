@@ -8,7 +8,7 @@ onready var levels = []
 
 
 func _ready():
-	if not MusicController.playing_menu:
+	if MusicController.playing != "Menu":
 		MusicController.play_menu_music()
 	back.connect("pressed", self, "_on_back_pressed")
 	

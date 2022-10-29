@@ -7,7 +7,7 @@ onready var settings = get_node("%Settings")
 
 
 func _ready():
-	if not MusicController.playing_menu:
+	if MusicController.playing != "Menu":
 		MusicController.play_menu_music()
 	play.connect("pressed", self, "_on_play_pressed")
 	settings.connect("pressed", self, "_on_settings_pressed")
