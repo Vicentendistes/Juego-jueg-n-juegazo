@@ -31,6 +31,8 @@ func _input(event):
 	if event.is_action_pressed("quit"):
 		visible = !visible
 		get_tree().paused = visible
+		v_box_container_2.visible = false
+		v_box_container.visible = true
 		resume.grab_focus()
 		
 func _on_resume_pressed():

@@ -46,6 +46,4 @@ func _on_back_pressed():
 		print("error al cambiar de escena")
 
 func _on_level_pressed(i):
-	if get_tree().change_scene(levels[i]) != OK:
-		print("error al cambiar de escena")
-	
+	SceneTransition.change_scene(levels[i])

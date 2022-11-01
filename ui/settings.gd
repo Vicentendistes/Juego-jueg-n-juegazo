@@ -9,7 +9,7 @@ func _ready():
 		
 	back.connect("pressed", self, "_on_back_pressed")
 	fullscreen.connect("toggled", self, "_on_fullscreen_toggled")
-	back.grab_focus()
+	fullscreen.grab_focus()
 	
 func _on_back_pressed():
 	if get_tree().change_scene("res://ui/main_menu.tscn") != OK:

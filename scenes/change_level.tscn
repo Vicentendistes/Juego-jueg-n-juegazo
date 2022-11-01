@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://next_level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/scripts/next_level.gd" type="Script" id=1]
 [ext_resource path="res://assets/Rocky Roads/sun.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=4]
+radius = 8.0
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -47,7 +48,7 @@ script = ExtResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
