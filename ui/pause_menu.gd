@@ -10,7 +10,6 @@ onready var fullscreen = $"%Fullscreen"
 onready var back = $"%Back"
 
 func _ready():
-	Global.respawn = null #restart respawn
 	resume.connect("pressed", self, "_on_resume_pressed")
 	restart.connect("pressed", self, "_on_restart_pressed")
 	main_menu.connect("pressed", self, "_on_main_menu_pressed")
@@ -21,13 +20,14 @@ func _ready():
 	fullscreen.connect("toggled", self, "_on_fullscreen_toggled")
 	back.connect("pressed", self, "_on_back_pressed")
 	hide()
-	
+
+
+#==============================[INPUTS]==================================
 func _input(event):
 	if event.is_action_pressed("restart"):
 		get_tree().paused = false
-		if get_tree().reload_current_scene() != OK:
-			print("error al reiniciar de escena")
-		Global.respawn = null #restart respawn point
+		hide()
+		get_owner().restart() #resatrt charlie
 		
 	if event.is_action_pressed("quit"):
 		visible = !visible
@@ -35,7 +35,8 @@ func _input(event):
 		v_box_container_2.visible = false
 		v_box_container.visible = true
 		resume.grab_focus()
-		
+
+#==============================[SIGNALS]==================================
 func _on_resume_pressed():
 	get_tree().paused = false
 	hide()
@@ -43,8 +44,8 @@ func _on_resume_pressed():
 func _on_restart_pressed():
 	Global.respawn = null #restart respawn point
 	get_tree().paused = false
-	if get_tree().reload_current_scene() != OK:
-		print("error al reiniciar de escena")
+	hide()
+	get_owner().restart()
 	
 func _on_main_menu_pressed():
 	get_tree().paused = false

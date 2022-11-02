@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/hooded figure asset pack/idle.png" type="Texture" id=1]
 [ext_resource path="res://scenes/scripts/charlie.gd" type="Script" id=2]
@@ -272,6 +272,34 @@ graph_offset = Vector2( -113.476, -72.1759 )
 [sub_resource type="CircleShape2D" id=22]
 radius = 100.0
 
+[sub_resource type="Gradient" id=29]
+offsets = PoolRealArray( 0.554839, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 29 )
+
+[sub_resource type="Curve" id=30]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=28]
+curve = SubResource( 30 )
+
+[sub_resource type="ParticlesMaterial" id=31]
+emission_shape = 1
+emission_sphere_radius = 4.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -34.6
+scale = 2.0
+scale_curve = SubResource( 28 )
+color = Color( 0, 0.929412, 1, 1 )
+color_ramp = SubResource( 25 )
+
 [node name="Charlie" type="KinematicBody2D" groups=["Player"]]
 collision_mask = 0
 script = ExtResource( 2 )
@@ -444,3 +472,12 @@ texture = ExtResource( 14 )
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 15 )]
 pause_mode = 2
+
+[node name="dead" type="Particles2D" parent="."]
+position = Vector2( 0, -2 )
+z_index = 1
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.63
+process_material = SubResource( 31 )

@@ -40,6 +40,7 @@ tracks/0/keys = {
 }
 
 [node name="Change_Level" type="Sprite"]
+z_index = -1
 texture = ExtResource( 2 )
 hframes = 6
 frame = 1

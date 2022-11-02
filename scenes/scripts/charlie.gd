@@ -7,7 +7,6 @@ var timer2 = 0
 var left_floor = false
 var array = []
 var dead = false
-var finish = false
 
 #constants
 var ACCELERATION = 900 
@@ -25,6 +24,8 @@ onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 
 func _ready():
+	#activate input
+	get_tree().get_root().set_disable_input(false)
 	#play music
 	MusicController.play_music(self)
 	#play animation tree
@@ -49,6 +50,7 @@ func _physics_process(delta):
 		if timer > 0:
 			timer -= delta/JUMP_TIME
 		if Input.is_action_just_pressed("jump"):
+			print(Global.respawn)
 			if timer2 > 0:
 				velocity.y = -JUMP_SPEED
 				timer2 = 0
@@ -125,28 +127,25 @@ func _physics_process(delta):
 					pass
 			#if collision.collider.is_in_group("bodies"):
 			#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBod
-	elif not finish:
-		pivot.hide()
-		$Area2D.hide()
 		
 	
-	#========================================[ANIMATIONS]=======================================
-	#change pivot when moving in one direction
-	if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
-		pivot.scale.x = 1
-	if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
-		pivot.scale.x = -1
-	
-	if is_on_floor():
-		if abs(velocity.x)>25:
-			playback.travel("run")
+		#========================================[ANIMATIONS]=======================================
+		#change pivot when moving in one direction
+		if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
+			pivot.scale.x = 1
+		if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
+			pivot.scale.x = -1
+		
+		if is_on_floor():
+			if abs(velocity.x)>25:
+				playback.travel("run")
+			else:
+				playback.travel("idle")
 		else:
-			playback.travel("idle")
-	else:
-		if velocity.y < 0:
-			playback.travel("jump")
-		else:
-			playback.travel("fall")
+			if velocity.y < 0:
+				playback.travel("jump")
+			else:
+				playback.travel("fall")
 
 #========================================[IMANTADO SIGNALS]=======================================
 #if entered imantado append
@@ -167,8 +166,9 @@ func push(vector, t):
 	if t=="xy":
 		velocity += vector
 
+#==============================[SCENE TRANSITIONS]==========================================
 func died():
-	set_process_input(false)
+	get_tree().get_root().set_disable_input(true)
 	dead = true
 	$dead.emitting = true
 	pivot.hide()
@@ -176,3 +176,6 @@ func died():
 	yield(get_tree().create_timer(1.0), "timeout")
 	SceneTransition.reload_current_scene()
 	
+func restart():
+	get_tree().get_root().set_disable_input(true)
+	SceneTransition.reload_current_scene()

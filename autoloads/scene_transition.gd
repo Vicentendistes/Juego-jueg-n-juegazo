@@ -2,6 +2,7 @@ extends CanvasLayer
 
 func change_scene(target: String) -> void:
 	var scene = get_tree()
+	Global.respawn = null
 	$AnimationPlayer.play("dissolve")
 	yield($AnimationPlayer, "animation_finished")
 	if not scene.change_scene(target):

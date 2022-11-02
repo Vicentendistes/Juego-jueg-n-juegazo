@@ -277,13 +277,13 @@ radius = 100.0
 offsets = PoolRealArray( 0.554839, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=25]
+[sub_resource type="GradientTexture" id=28]
 gradient = SubResource( 24 )
 
 [sub_resource type="Curve" id=27]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=28]
+[sub_resource type="CurveTexture" id=29]
 curve = SubResource( 27 )
 
 [sub_resource type="ParticlesMaterial" id=26]
@@ -297,9 +297,9 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -34.6
 scale = 2.0
-scale_curve = SubResource( 28 )
+scale_curve = SubResource( 29 )
 color = Color( 0, 0.929412, 1, 1 )
-color_ramp = SubResource( 25 )
+color_ramp = SubResource( 28 )
 
 [node name="Charlie" type="KinematicBody2D" groups=["Player"]]
 collision_mask = 0
