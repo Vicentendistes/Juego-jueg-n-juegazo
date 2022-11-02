@@ -277,6 +277,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+pause_mode = 2
 
 [node name="ParallaxLayer0" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 0.8 )

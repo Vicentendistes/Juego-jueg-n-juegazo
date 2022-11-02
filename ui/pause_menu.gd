@@ -10,6 +10,7 @@ onready var fullscreen = $"%Fullscreen"
 onready var back = $"%Back"
 
 func _ready():
+	Global.respawn = null #restart respawn
 	resume.connect("pressed", self, "_on_resume_pressed")
 	restart.connect("pressed", self, "_on_restart_pressed")
 	main_menu.connect("pressed", self, "_on_main_menu_pressed")
@@ -26,7 +27,7 @@ func _input(event):
 		get_tree().paused = false
 		if get_tree().reload_current_scene() != OK:
 			print("error al reiniciar de escena")
-		
+		Global.respawn = null #restart respawn point
 		
 	if event.is_action_pressed("quit"):
 		visible = !visible
@@ -40,6 +41,7 @@ func _on_resume_pressed():
 	hide()
 	
 func _on_restart_pressed():
+	Global.respawn = null #restart respawn point
 	get_tree().paused = false
 	if get_tree().reload_current_scene() != OK:
 		print("error al reiniciar de escena")

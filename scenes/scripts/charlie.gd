@@ -6,6 +6,8 @@ var timer = 0
 var timer2 = 0
 var left_floor = false
 var array = []
+var dead = false
+var finish = false
 
 #constants
 var ACCELERATION = 900 
@@ -33,96 +35,100 @@ func _ready():
 
 
 func _physics_process(delta):
-	#==================================[BASIC CONTROLS]=========================================
-	velocity = move_and_slide(velocity, Vector2.UP)
-	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
-	
-	#right and left movements
-	var move_input = Input.get_axis("move_left", "move_right")
-	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
-	velocity.y +=  GRAVITY
-	
-	#jump with coyoter time and prejump
-	if timer > 0:
-		timer -= delta/JUMP_TIME
-	if Input.is_action_just_pressed("jump"):
-		if timer2 > 0:
-			velocity.y = -JUMP_SPEED
-			timer2 = 0
-		timer = 1
-	if is_on_floor():
-		left_floor = false
+	if not dead:
+		#==================================[BASIC CONTROLS]=========================================
+		velocity = move_and_slide(velocity, Vector2.UP)
+		#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+		
+		#right and left movements
+		var move_input = Input.get_axis("move_left", "move_right")
+		velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION*delta)
+		velocity.y +=  GRAVITY
+		
+		#jump with coyoter time and prejump
 		if timer > 0:
-			timer = 0
-			velocity.y = -JUMP_SPEED
+			timer -= delta/JUMP_TIME
+		if Input.is_action_just_pressed("jump"):
+			if timer2 > 0:
+				velocity.y = -JUMP_SPEED
+				timer2 = 0
+			timer = 1
+		if is_on_floor():
+			left_floor = false
+			if timer > 0:
+				timer = 0
+				velocity.y = -JUMP_SPEED
+				left_floor = true
+		if not is_on_floor():
+			timer2 -= delta/JUMP_TIME
+		if not(left_floor or is_on_floor()):
+			timer2 = 1
 			left_floor = true
-	if not is_on_floor():
-		timer2 -= delta/JUMP_TIME
-	if not(left_floor or is_on_floor()):
-		timer2 = 1
-		left_floor = true
-			
-	#=======================================[MAGNETO]===========================================
-	var iman = null
-	var direction = Vector2()
-	var minimo = 10000000
-	var numero = 0 
-	if array != []:
-		
-		for i in range(len(array)):
-			var a = global_position
-			var b = array[i].global_position
-			var iman_texture = array[i].get_node("Iman_tex")
-			iman_texture.aura(0)
-			if (a-b).length() < minimo:
-				minimo = (a-b).length()
-				numero = i
-		iman = array[numero]
-		var iman_texture = iman.get_node("Iman_tex")
-		iman_texture.aura(5)
-		iman.interact = false
-		
-	if Input.is_action_pressed("attract"):
-		if iman != null:
-			direction = global_position - iman.position
-			direction /= direction.length_squared()
-			direction = direction.normalized()*FORCE
-			velocity -= direction
-			iman.velocity += direction
-			iman.interact = true
-			
-		
-	if Input.is_action_pressed("push"):
-		if iman != null:
-			direction = global_position - iman.position
-			direction /= direction.length_squared()
-			direction = direction.normalized()*FORCE
-			velocity += direction
-			iman.velocity -= direction
-			iman.interact = true
-	
-	#==========================================[COLLISION]=========================================
-	#colitions with Imantado after calling move_and_slide()
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("imantado"):
-			var difference = collision.collider.global_position.y - global_position.y
-			
-			if  difference > 7 + collision.collider.height and collision.collider.velocity.y < 400:
-				#print("arriba")
-				collision.collider.push(-collision.normal * velocity.length(), "y")
 				
-			elif difference < -(7 + collision.collider.height):
-				#print("abajo")
-				#collision.collider.push(-collision.normal * IMPULSE, "x")
-				pass
-			else:
-				#print("en medio")
-				#collision.collider.push(-collision.normal * IMPULSE, "x")
-				pass
-		#if collision.collider.is_in_group("bodies"):
-		#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBody
-
+		#=======================================[MAGNETO]===========================================
+		var iman = null
+		var direction = Vector2()
+		var minimo = 10000000
+		var numero = 0 
+		if array != []:
+			
+			for i in range(len(array)):
+				var a = global_position
+				var b = array[i].global_position
+				var iman_texture = array[i].get_node("Iman_tex")
+				iman_texture.aura(0)
+				if (a-b).length() < minimo:
+					minimo = (a-b).length()
+					numero = i
+			iman = array[numero]
+			var iman_texture = iman.get_node("Iman_tex")
+			iman_texture.aura(5)
+			iman.interact = false
+			
+		if Input.is_action_pressed("attract"):
+			if iman != null:
+				direction = global_position - iman.position
+				direction /= direction.length_squared()
+				direction = direction.normalized()*FORCE
+				velocity -= direction
+				iman.velocity += direction
+				iman.interact = true
+				
+			
+		if Input.is_action_pressed("push"):
+			if iman != null:
+				direction = global_position - iman.position
+				direction /= direction.length_squared()
+				direction = direction.normalized()*FORCE
+				velocity += direction
+				iman.velocity -= direction
+				iman.interact = true
+		
+		#==========================================[COLLISION]=========================================
+		#colitions with Imantado after calling move_and_slide()
+		for index in get_slide_count():
+			var collision = get_slide_collision(index)
+			if collision.collider.is_in_group("imantado"):
+				var difference = collision.collider.global_position.y - global_position.y
+				
+				if  difference > 7 + collision.collider.height and collision.collider.velocity.y < 400:
+					#print("arriba")
+					collision.collider.push(-collision.normal * velocity.length(), "y")
+					
+				elif difference < -(7 + collision.collider.height):
+					#print("abajo")
+					#collision.collider.push(-collision.normal * IMPULSE, "x")
+					pass
+				else:
+					#print("en medio")
+					#collision.collider.push(-collision.normal * IMPULSE, "x")
+					pass
+			#if collision.collider.is_in_group("bodies"):
+			#	collision.collider.apply_central_impulse(-collision.normal * IMPULSE) #RigidBod
+	elif not finish:
+		pivot.hide()
+		$Area2D.hide()
+		
 	
 	#========================================[ANIMATIONS]=======================================
 	#change pivot when moving in one direction
@@ -160,4 +166,13 @@ func push(vector, t):
 		velocity.y += vector.y
 	if t=="xy":
 		velocity += vector
-		
+
+func died():
+	set_process_input(false)
+	dead = true
+	$dead.emitting = true
+	pivot.hide()
+	$Area2D.hide()
+	yield(get_tree().create_timer(1.0), "timeout")
+	SceneTransition.reload_current_scene()
+	

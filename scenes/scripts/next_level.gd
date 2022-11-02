@@ -27,11 +27,13 @@ func _ready():
 	hitbox.connect("body_entered", self, "_on_hitbox_body_entered", [current_level_index+1])
 	
 	
-func _on_hitbox_body_entered(_body, i):
+func _on_hitbox_body_entered(body, i):
+	body.finish = true
+	body.dead = true
 	if i< len(levels):
 		SceneTransition.change_scene(levels[i])
 
-	if i == len(levels) and get_tree().change_scene("res://ui/levels.tscn") != OK:
+	if i == len(levels) and SceneTransition.change_scene("res://ui/levels.tscn") != OK:
 			print("error al cambiar de escena")
 		
 	

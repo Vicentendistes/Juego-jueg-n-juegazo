@@ -6,5 +6,8 @@ func _ready():
 		print("error al conectar")
 	
 func _on_DeadZone_body_entered(body: Node):
-	if body.is_in_group("Player") or body.is_in_group("imantado"):
+	if body.is_in_group("Player"):
+		body.dead = true
+		SceneTransition.reload_current_scene()
+	elif body.is_in_group("imantado"):
 		body.global_position = body.respawn

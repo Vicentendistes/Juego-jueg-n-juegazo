@@ -9,5 +9,5 @@ func _ready():
 	
 func _on_area_body_entered(body: Node):
 	if body.is_in_group("Player"):
-		body.global_position = body.respawn
+		body.died()
 	

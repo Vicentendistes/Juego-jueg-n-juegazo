@@ -8,6 +8,7 @@ onready var levels = []
 
 
 func _ready():
+	Global.respawn = null #restart respawn
 	if MusicController.playing != "Menu":
 		MusicController.play_menu_music()
 	back.connect("pressed", self, "_on_back_pressed")
