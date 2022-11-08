@@ -50,7 +50,6 @@ func _physics_process(delta):
 		if timer > 0:
 			timer -= delta/JUMP_TIME
 		if Input.is_action_just_pressed("jump"):
-			print(Global.respawn)
 			if timer2 > 0:
 				velocity.y = -JUMP_SPEED
 				timer2 = 0
@@ -86,26 +85,31 @@ func _physics_process(delta):
 			var iman_texture = iman.get_node("Iman_tex")
 			iman_texture.aura(5)
 			iman.interact = false
-			
+
+		#$force_particles.emitting = false
 		if Input.is_action_pressed("attract"):
 			if iman != null:
+				#$force_particles.emitting = true
 				direction = global_position - iman.position
 				direction /= direction.length_squared()
-				direction = direction.normalized()*FORCE
+				direction = direction.normalized()
+				#$force_particles.process_material.set_direction(Vector3(-direction.x, -direction.y, 0))
+				direction *= FORCE
 				velocity -= direction
 				iman.velocity += direction
 				iman.interact = true
-				
-			
+
 		if Input.is_action_pressed("push"):
 			if iman != null:
+				#$force_particles.emitting = true
 				direction = global_position - iman.position
 				direction /= direction.length_squared()
-				direction = direction.normalized()*FORCE
+				direction = direction.normalized()
+				#$force_particles.process_material.set_direction(Vector3(-direction.x, -direction.y, 0))
+				direction *= FORCE
 				velocity += direction
 				iman.velocity -= direction
 				iman.interact = true
-		
 		#==========================================[COLLISION]=========================================
 		#colitions with Imantado after calling move_and_slide()
 		for index in get_slide_count():
@@ -146,6 +150,8 @@ func _physics_process(delta):
 				playback.travel("jump")
 			else:
 				playback.travel("fall")
+	else:
+		anim_tree.active = false
 
 #========================================[IMANTADO SIGNALS]=======================================
 #if entered imantado append
@@ -179,3 +185,7 @@ func died():
 func restart():
 	get_tree().get_root().set_disable_input(true)
 	SceneTransition.reload_current_scene()
+	
+#===============================[AUXILIAR FUNCTIONS]====================================
+func next_level():
+	$CanvasLayer/PauseMenu.completed()

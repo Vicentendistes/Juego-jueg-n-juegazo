@@ -8,6 +8,7 @@ onready var levels = []
 
 
 func _ready():
+	Global.time_on = false #rets
 	Global.respawn = null #restart respawn
 	if MusicController.playing != "Menu":
 		MusicController.play_menu_music()
@@ -24,6 +25,7 @@ func _ready():
 		elif not file.begins_with("."):
 			levels.append("res://scenes/levels/"+str(file))
 	dir.list_dir_end()
+	Global.levels = levels #save levels list in global
 
 	#add a signal wich connects a button to a level
 	for i in range(len(levels)):
@@ -47,4 +49,5 @@ func _on_back_pressed():
 		print("error al cambiar de escena")
 
 func _on_level_pressed(i):
+	Global.current_level = i #saves current level in global
 	SceneTransition.change_scene(levels[i])

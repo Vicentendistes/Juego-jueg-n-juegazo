@@ -15,7 +15,7 @@
 [ext_resource path="res://scenes/scripts/cloud_layer.gd" type="Script" id=13]
 [ext_resource path="res://assets/Varios/ballBlue_10.png" type="Texture" id=14]
 [ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=15]
-[ext_resource path="res://resources/water_animated_texture.tres" type="Texture" id=16]
+[ext_resource path="res://resources/water/water_animated_texture.tres" type="Texture" id=16]
 [ext_resource path="res://assets/Rocky Roads/water_8frames.png" type="Texture" id=17]
 
 [sub_resource type="TileSet" id=24]

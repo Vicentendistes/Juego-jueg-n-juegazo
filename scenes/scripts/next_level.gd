@@ -24,15 +24,17 @@ func _ready():
 	dir.list_dir_end()
 	
 	#add signal to enter next level
-	hitbox.connect("body_entered", self, "_on_hitbox_body_entered", [current_level_index+1])
+	hitbox.connect("body_entered", self, "_on_hitbox_body_entered")
 	
 	
-func _on_hitbox_body_entered(body, i):
-	body.dead = true
-	if i< len(levels):
-		SceneTransition.change_scene(levels[i])
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("Player"):
+		body.dead = true
+		body.next_level()
+	#if i< len(levels):
+	#	SceneTransition.change_scene(levels[i])
 
-	else:
-		SceneTransition.change_scene("res://ui/levels.tscn")
+	#else:
+	#	SceneTransition.change_scene("res://ui/levels.tscn")
 		
 	
