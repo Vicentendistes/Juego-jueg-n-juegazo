@@ -24,9 +24,7 @@ func _on_settings_pressed():
 		print("error al cambiar de escena")
 	
 func _on_credits_pressed():
-	print("faltan los creditos")
-	#if get_tree().change_scene() != OK:
-	#	print("error al cambiar de escena")
+	SceneTransition.change_scene("res://ui/credits.tscn")
 	
 func _on_exit_pressed():
 	get_tree().quit()

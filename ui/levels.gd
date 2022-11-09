@@ -10,8 +10,7 @@ onready var levels = []
 func _ready():
 	Global.time_on = false #rets
 	Global.respawn = null #restart respawn
-	if MusicController.playing != "Menu":
-		MusicController.play_menu_music()
+	MusicController.play_menu_music()
 	back.connect("pressed", self, "_on_back_pressed")
 	
 	#checks levels folder and add path to levels list

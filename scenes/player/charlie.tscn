@@ -328,6 +328,7 @@ collision_mask = 0
 script = ExtResource( 17 )
 
 [node name="force_particles" type="Particles2D" parent="."]
+visible = false
 emitting = false
 amount = 70
 local_coords = false
@@ -447,6 +448,7 @@ texture = ExtResource( 15 )
 hframes = 4
 
 [node name="CameraOffset" type="Position2D" parent="Pivot"]
+visible = false
 position = Vector2( 51, -27 )
 
 [node name="Camera2D" type="Camera2D" parent="Pivot/CameraOffset"]

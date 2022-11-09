@@ -5,11 +5,15 @@ var menu_music = load("res://assets/Intro.wav")
 var snow_music = load("res://assets/Radiatta.wav")
 var dirt_music = load("res://assets/PitcherPerfectTheme.wav")
 var desert_music = load("res://assets/8bit.wav")
+var complete_music = load("res://assets/Finalmente.wav")
 #know the state before going back or change scene
 var playing
+#controll the volume
+var volume = 0
+var song_volume = 0
 
-func _ready():
-	pass
+func _process(_delta):
+	$Music.volume_db = volume + song_volume
 	
 func play_music(node):
 	var level_type = node.get_parent().name
@@ -23,28 +27,35 @@ func play_music(node):
 
 #functions to play the music
 func play_menu_music():
-	$Music.volume_db = -10
-	$Music.stream = menu_music
-	$Music.play()
-	playing = "Menu"
+	song_volume = -16
+	if MusicController.playing != "Menu":
+		$Music.stream = menu_music
+		$Music.play()
+		playing = "Menu"
 	
 func play_snow_music():
-	$Music.volume_db = -15
+	song_volume = -12
 	if playing != "Snow":
 		$Music.stream = snow_music
 		$Music.play()
 		playing = "Snow"
 	
 func play_dirt_music():
-	$Music.volume_db = -30
+	song_volume = -27
 	if playing != "Dirt":
 		$Music.stream = dirt_music
 		$Music.play()
 		playing = "Dirt"
 
 func play_desert_music():
-	$Music.volume_db = -10
+	song_volume = -20
 	if playing != "Desert":
 		$Music.stream = desert_music
 		$Music.play()
 		playing = "Desert"
+		
+func play_complete_music():
+	playing = "Complete"
+	song_volume = -16
+	$Music.stream = complete_music
+	$Music.play()

@@ -5,29 +5,43 @@ onready var resume = $"%Resume"
 onready var restart = $"%Restart"
 onready var settings = $"%Settings"
 onready var main_menu = $"%MainMenu"
+
 onready var v_box_container_2 = $VBoxContainer2
 onready var fullscreen = $"%Fullscreen"
+onready var tiempo = $"%Tiempo"
+onready var music = $"%Music"
+onready var sound = $"%Sound"
 onready var back = $"%Back"
+
 onready var v_box_container_3 = $VBoxContainer3
 onready var next = $VBoxContainer3/Next
 onready var restart2 = $VBoxContainer3/Restart
 onready var main_menu2 = $VBoxContainer3/MainMenu
 
 func _ready():
+	#Pause
 	resume.connect("pressed", self, "_on_resume_pressed")
 	restart.connect("pressed", self, "_on_restart_pressed")
 	main_menu.connect("pressed", self, "_on_main_menu_pressed")
 	
+	#Completed
 	restart2.connect("pressed", self, "_on_restart_pressed")
 	main_menu2.connect("pressed", self, "_on_main_menu_pressed")
 	next.connect("pressed", self, "_on_next_pressed")
 	
+	#Settings
 	if OS.window_fullscreen:
 		fullscreen.pressed = true
+	if Global.time_show:
+		tiempo.pressed = true
 	settings.connect("pressed", self, "_on_settings_pressed")
 	fullscreen.connect("toggled", self, "_on_fullscreen_toggled")
+	tiempo.connect("toggled", self, "_on_tiempo_toggled")
 	back.connect("pressed", self, "_on_back_pressed")
+	music.connect("value_changed", self, "_on_Music_value_changed")
+	music.value = MusicController.volume
 	hide()
+	
 
 
 #==============================[INPUTS]==================================
@@ -50,7 +64,7 @@ func _on_resume_pressed():
 	hide()
 	
 func _on_restart_pressed():
-	Global.time = 0 #restart time
+	Global.time_on = false #restart time
 	Global.respawn = null #restart respawn point
 	get_tree().paused = false
 	hide()
@@ -69,11 +83,17 @@ func _on_settings_pressed():
 func _on_fullscreen_toggled(button_pressed):
 	OS.set_window_fullscreen(button_pressed)
 	
+func _on_tiempo_toggled(button_pressed):
+	Global.time_show = button_pressed
 	
 func _on_back_pressed():
 	v_box_container_2.visible = false
 	v_box_container.visible = true
 	resume.grab_focus()
+	
+func _on_Music_value_changed(value):
+	print(value)
+	MusicController.volume = value
 
 #==============================[COMPLETED SIGNALS]==================================
 func completed()->void:
@@ -94,11 +114,10 @@ func completed()->void:
 	next.grab_focus()
 	
 func _on_next_pressed():
-	Global.time_on = false #restart timer
 	get_tree().paused = false
 	Global.current_level += 1
 	#Change next level
 	if (Global.current_level)< len(Global.levels):
 		SceneTransition.change_scene(Global.levels[Global.current_level])
 	else:
-		SceneTransition.change_scene("res://ui/levels.tscn")
+		SceneTransition.change_scene("res://ui/credits.tscn")

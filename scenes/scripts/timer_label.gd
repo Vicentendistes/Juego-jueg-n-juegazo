@@ -2,7 +2,7 @@ extends Label
 
 
 func _process(delta):
-	if not Global.time_on:
+	if not Global.time_show:
 		hide()
 	var time = Global.time
 	time += delta
