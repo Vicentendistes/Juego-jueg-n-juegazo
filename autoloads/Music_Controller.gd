@@ -6,6 +6,7 @@ var snow_music = load("res://assets/Radiatta.wav")
 var dirt_music = load("res://assets/PitcherPerfectTheme.wav")
 var desert_music = load("res://assets/8bit.wav")
 var complete_music = load("res://assets/Finalmente.wav")
+var credits_music = load("res://assets/Guaracha Austral.wav")
 #know the state before going back or change scene
 var playing
 #controll the volume
@@ -58,4 +59,10 @@ func play_complete_music():
 	playing = "Complete"
 	song_volume = -16
 	$Music.stream = complete_music
+	$Music.play()
+	
+func play_credits_music():
+	playing = "Credits"
+	song_volume = -10
+	$Music.stream = credits_music
 	$Music.play()

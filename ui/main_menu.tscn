@@ -43,9 +43,9 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 233.0
-margin_top = 47.0
+margin_top = 45.0
 margin_right = 462.0
-margin_bottom = 191.0
+margin_bottom = 193.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
@@ -58,30 +58,30 @@ align = 1
 
 [node name="Play" type="Button" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 36.0
+margin_top = 37.0
 margin_right = 229.0
-margin_bottom = 60.0
+margin_bottom = 61.0
 text = "Jugar"
 
 [node name="Settings" type="Button" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 64.0
+margin_top = 66.0
 margin_right = 229.0
-margin_bottom = 88.0
+margin_bottom = 90.0
 text = "Ajustes"
 
 [node name="Credits" type="Button" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 92.0
+margin_top = 95.0
 margin_right = 229.0
-margin_bottom = 116.0
+margin_bottom = 119.0
 text = "Creditos"
 
 [node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 120.0
+margin_top = 124.0
 margin_right = 229.0
-margin_bottom = 144.0
+margin_bottom = 148.0
 text = "Salir"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Pizel.ttf" type="DynamicFontData" id=1]
 
@@ -67,6 +67,16 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[sub_resource type="StyleBoxLine" id=8]
+content_margin_right = 30.0
+color = Color( 1, 1, 1, 0.439216 )
+grow_begin = -35.0
+grow_end = -35.0
+
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
@@ -77,7 +87,18 @@ Button/styles/focus = SubResource( 3 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = SubResource( 6 )
+CreditsContainer/base_type = "VBoxContainer"
+CreditsContainer/constants/margin_bottom = 25
+CreditsContainer/constants/margin_left = 25
+CreditsContainer/constants/margin_right = 25
+CreditsContainer/constants/margin_top = 25
+CreditsContainer/constants/separation = 15
+HSeparator/styles/separator = SubResource( 7 )
 MarginContainer/constants/margin_bottom = 25
 MarginContainer/constants/margin_left = 25
 MarginContainer/constants/margin_right = 25
 MarginContainer/constants/margin_top = 25
+SmallSeparator/base_type = "HSeparator"
+SmallSeparator/constants/separation = 0
+SmallSeparator/styles/separator = SubResource( 8 )
+VBoxContainer/constants/separation = 5

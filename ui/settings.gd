@@ -32,5 +32,4 @@ func _on_tiempo_toggled(button_pressed):
 	Global.time_show = button_pressed
 	
 func _on_Music_value_changed(value):
-	print(value)
 	MusicController.volume = value
