@@ -69,13 +69,14 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxLine" id=7]
 color = Color( 1, 1, 1, 1 )
-thickness = 2
+grow_begin = 20.0
+grow_end = 20.0
 
 [sub_resource type="StyleBoxLine" id=8]
 content_margin_right = 30.0
-color = Color( 1, 1, 1, 0.439216 )
-grow_begin = -35.0
-grow_end = -35.0
+color = Color( 1, 1, 1, 1 )
+grow_begin = -70.0
+grow_end = -70.0
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )

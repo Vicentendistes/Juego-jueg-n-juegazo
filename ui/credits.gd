@@ -1,6 +1,10 @@
 extends MarginContainer
 
 onready var credits_container = $ScrollContainer/CreditsContainer
+onready var scroll_container = $ScrollContainer
+var scroll_speed = 1
+var scroll_ended = false
+var scroll_pause = false
 
 var credits = [
 	{
@@ -26,6 +30,10 @@ var credits = [
 	{
 	"name": "Forest Tileset",
 	"autor": "mamanezakon.itch.io"
+	},
+	{
+	"name": "Not Jam Music Pack",
+	"autor": "not-jam.itch.io"
 	}
 ]
 
@@ -40,6 +48,21 @@ func _ready():
 		credits_container.add_child(name_label)
 		credits_container.add_child(autor_label)
 		credits_container.add_child(h_separator)
+	var press_exit = _create_label("\n \n \n \n \n \n \n \n \n \n \n \n \n \n Presione Esc para volver al menú \n")
+	credits_container.add_child(press_exit)
+	
+	#Copy from tutorial
+	set_physics_process(false)
+	yield(get_tree().create_timer(1), "timeout")
+	set_physics_process(true)
+	
+func _physics_process(_delta):
+	var last_scroll = scroll_container.scroll_vertical
+	scroll_container.scroll_vertical += scroll_speed
+	var new_scroll = scroll_container.scroll_vertical
+	if last_scroll == new_scroll:
+		set_physics_process(false)
+		#_to_main_menu()
 		
 		
 func _input(event):
@@ -52,4 +75,10 @@ func _create_label(text) -> Label:
 	label.align = Label.ALIGN_CENTER
 	label.autowrap = true
 	return label
+	
+func _to_main_menu():
+	if not scroll_ended:
+		scroll_ended = true
+		yield(get_tree().create_timer(2), "timeout")
+		SceneTransition.change_scene("res://ui/main_menu.tscn")
 

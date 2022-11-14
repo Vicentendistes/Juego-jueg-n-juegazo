@@ -2,8 +2,10 @@ extends Label
 
 
 func _process(delta):
-	if not Global.time_show:
+	if not Global.time_visible:
 		hide()
+	else:
+		visible = true
 	var time = Global.time
 	time += delta
 	
