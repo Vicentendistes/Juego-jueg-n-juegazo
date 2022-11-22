@@ -15,6 +15,8 @@ func _process(delta):
 		time += delta
 		if time_show:
 			time_visible = true
+		else:
+			time_visible = false
 	else:
 		time_visible = false
 		time = 0

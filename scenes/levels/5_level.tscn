@@ -352,7 +352,7 @@ extents = Vector2( 2236, 88 )
 script = ExtResource( 7 )
 
 [node name="Charlie" parent="." instance=ExtResource( 1 )]
-position = Vector2( 112, 8 )
+position = Vector2( 3144, -552 )
 
 [node name="Imantado" parent="." instance=ExtResource( 2 )]
 position = Vector2( 156, 0 )

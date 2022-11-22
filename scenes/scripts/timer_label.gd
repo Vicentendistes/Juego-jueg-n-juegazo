@@ -1,13 +1,12 @@
 extends Label
 
 
-func _process(delta):
+func _process(_delta):
 	if not Global.time_visible:
 		hide()
 	else:
 		visible = true
 	var time = Global.time
-	time += delta
 	
 	var mils = fmod(time,1)*1000
 	var secs = fmod(time,60)

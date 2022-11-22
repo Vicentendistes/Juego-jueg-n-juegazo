@@ -85,6 +85,7 @@ func _on_fullscreen_toggled(button_pressed):
 	
 func _on_tiempo_toggled(button_pressed):
 	Global.time_show = button_pressed
+	print(Global.time_show)
 	
 func _on_back_pressed():
 	v_box_container_2.visible = false

@@ -13,5 +13,5 @@ func _ready():
 func _on_hitbox_body_entered(body):
 	MusicController.play_complete_music()
 	if body.is_in_group("Player"):
-		body.dead = true
+		body.dead()
 		body.next_level()

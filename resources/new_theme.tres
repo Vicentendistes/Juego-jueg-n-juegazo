@@ -69,8 +69,6 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxLine" id=7]
 color = Color( 1, 1, 1, 1 )
-grow_begin = 20.0
-grow_end = 20.0
 
 [sub_resource type="StyleBoxLine" id=8]
 content_margin_right = 30.0
