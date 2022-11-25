@@ -13,40 +13,24 @@ func _ready():
 	MusicController.play_menu_music()
 	back.connect("pressed", self, "_on_back_pressed")
 	
-	#checks levels folder and add path to levels list
-	var dir = Directory.new()
-	dir.open("res://scenes/levels/")
-	dir.list_dir_begin()
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with("."):
-			levels.append("res://scenes/levels/"+str(file))
-	dir.list_dir_end()
-	Global.levels = levels #save levels list in global
+	levels = Data.levels #save levels with global levels
 
 	#add a signal wich connects a button to a level
 	for i in range(len(levels)):
-		var level = get_node("%Button"+str(i+1))
-		level.connect("pressed", self, "_on_level_pressed", [i])
-		
-	#disabled unused buttons
-	var count = 1	
-	for button in buttons.get_children():
-		if count > len(levels):
+		var button = Button.new()
+		button.text = str(i)
+		button.set_h_size_flags(3)
+		buttons.add_child(button)
+		button.connect("pressed", self, "_on_level_pressed", [i])
+		if i == 0:
+			button.grab_focus()
+		elif i > Data.max_level:
 			button.disabled = true
-		count +=1
-		
-	#focus level 1
-	var level1 =  get_node("%Button1")
-	level1.grab_focus()
-	
 
 func _on_back_pressed():
 	if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
 		print("error al cambiar de escena")
 
 func _on_level_pressed(i):
-	Global.current_level = i #saves current level in global
+	Data.set_current_level(i) #saves current level in global
 	SceneTransition.change_scene(levels[i])

@@ -32,6 +32,10 @@ var credits = [
 	"autor": "mamanezakon.itch.io"
 	},
 	{
+	"name": "Fire Animation - Pixel Art FX Sprites  ",
+	"autor": "brullov.itch.io"
+	},
+	{
 	"name": "Not Jam Music Pack",
 	"autor": "not-jam.itch.io"
 	}

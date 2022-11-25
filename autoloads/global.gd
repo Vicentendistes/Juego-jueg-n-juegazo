@@ -1,13 +1,13 @@
 extends Node
 
+#respawn position
 var respawn = null
-
-var levels = []
-var current_level = null
+#current activate respawn
+var active_respawn = null
 
 var time = 0
 var time_on = false
-var time_show = true
+var time_show = false #mostrar el tiempo
 var time_visible = false
 
 func _process(delta):

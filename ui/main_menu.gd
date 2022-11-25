@@ -27,4 +27,5 @@ func _on_credits_pressed():
 	SceneTransition.change_scene("res://ui/credits.tscn")
 	
 func _on_exit_pressed():
+	Data.save_data()
 	get_tree().quit()

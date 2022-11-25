@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scenes/player/charlie0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/imantado/imantado_0.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/respawn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/change_level.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/scripts/level.gd" type="Script" id=8]
+[ext_resource path="res://scenes/check_point.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=61]
 size = 8
@@ -1277,6 +1278,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 script = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -8.0
 margin_top = -88.0
 margin_right = 164.0
@@ -1289,6 +1291,7 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 margin_left = 776.0
 margin_top = 32.0
 margin_right = 948.0
@@ -1330,3 +1333,6 @@ position = Vector2( 112, -8 )
 
 [node name="Change_Level" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1912, -64 )
+
+[node name="Check_Point" parent="." instance=ExtResource( 9 )]
+position = Vector2( 848, 88 )

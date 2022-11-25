@@ -1,5 +1,6 @@
 extends Area2D
 
+
 func _ready():
 	var state = connect("body_entered", self, "_on_DeadZone_body_entered")
 	if state:

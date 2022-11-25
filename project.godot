@@ -29,6 +29,7 @@ config/icon="res://assets/Varios/icon.png"
 MusicController="*res://autoloads/Music_Controller.tscn"
 SceneTransition="*res://autoloads/scene_transition.tscn"
 Global="*res://autoloads/global.gd"
+Data="*res://data/data.gd"
 
 [display]
 

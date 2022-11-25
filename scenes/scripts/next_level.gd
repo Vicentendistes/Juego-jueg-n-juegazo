@@ -1,8 +1,5 @@
 extends Sprite
 
-onready var levels = []
-onready var current_level_index
-
 func _ready():
 	$AnimationPlayer.play("ciclo")
 	var hitbox = $Area2D
@@ -11,7 +8,7 @@ func _ready():
 	
 	
 func _on_hitbox_body_entered(body):
-	MusicController.play_complete_music()
 	if body.is_in_group("Player"):
+		MusicController.play_complete_music()
 		body.dead()
 		body.next_level()

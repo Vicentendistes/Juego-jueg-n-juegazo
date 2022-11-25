@@ -13,7 +13,7 @@ var playing
 var volume = 0
 var song_volume = 0
 
-func _process(_delta):
+func update():
 	$Music.volume_db = volume + song_volume
 	
 func play_music(node):
@@ -31,6 +31,7 @@ func play_menu_music():
 	song_volume = -16
 	if MusicController.playing != "Menu":
 		$Music.stream = menu_music
+		update()
 		$Music.play()
 		playing = "Menu"
 	
@@ -38,13 +39,15 @@ func play_snow_music():
 	song_volume = -12
 	if playing != "Snow":
 		$Music.stream = snow_music
+		update()
 		$Music.play()
 		playing = "Snow"
 	
 func play_dirt_music():
-	song_volume = -27
+	song_volume = -30
 	if playing != "Dirt":
 		$Music.stream = dirt_music
+		update()
 		$Music.play()
 		playing = "Dirt"
 
@@ -52,6 +55,7 @@ func play_desert_music():
 	song_volume = -20
 	if playing != "Desert":
 		$Music.stream = desert_music
+		update()
 		$Music.play()
 		playing = "Desert"
 		
@@ -59,10 +63,12 @@ func play_complete_music():
 	playing = "Complete"
 	song_volume = -16
 	$Music.stream = complete_music
+	update()
 	$Music.play()
 	
 func play_credits_music():
 	playing = "Credits"
 	song_volume = -10
 	$Music.stream = credits_music
+	update()
 	$Music.play()

@@ -33,3 +33,4 @@ func _on_tiempo_toggled(button_pressed):
 	
 func _on_Music_value_changed(value):
 	MusicController.volume = value
+	MusicController.update()

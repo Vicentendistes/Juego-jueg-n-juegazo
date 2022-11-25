@@ -17,6 +17,8 @@ onready var v_box_container_3 = $VBoxContainer3
 onready var next = $VBoxContainer3/Next
 onready var restart2 = $VBoxContainer3/Restart
 onready var main_menu2 = $VBoxContainer3/MainMenu
+onready var animation = $Animation
+
 
 func _ready():
 	#Pause
@@ -85,7 +87,7 @@ func _on_fullscreen_toggled(button_pressed):
 	
 func _on_tiempo_toggled(button_pressed):
 	Global.time_show = button_pressed
-	print(Global.time_show)
+	#print(Global.time_show)
 	
 func _on_back_pressed():
 	v_box_container_2.visible = false
@@ -93,11 +95,12 @@ func _on_back_pressed():
 	resume.grab_focus()
 	
 func _on_Music_value_changed(value):
-	print(value)
 	MusicController.volume = value
+	MusicController.update()
 
 #==============================[COMPLETED SIGNALS]==================================
 func completed()->void:
+	Data.set_current_level(Data.current_level+1)#actualiza el progreso
 	self.set_process_input(false)
 	Global.time_on = false
 	var time = Global.time
@@ -108,17 +111,18 @@ func completed()->void:
 	var time_passed = "Tu tiempo fue de: %02d : %02d . %03d" % [mins,secs, mils]
 	$VBoxContainer3/Score.text = time_passed
 	visible = !visible
+	
 	#get_tree().paused = visible
 	v_box_container_2.visible = false
 	v_box_container.visible = false
 	v_box_container_3.visible = true
+	animation.play("appear")
 	next.grab_focus()
 	
 func _on_next_pressed():
 	get_tree().paused = false
-	Global.current_level += 1
 	#Change next level
-	if (Global.current_level)< len(Global.levels):
-		SceneTransition.change_scene(Global.levels[Global.current_level])
+	if (Data.current_level)< len(Data.levels):
+		SceneTransition.change_scene(Data.levels[Data.current_level])
 	else:
 		SceneTransition.change_scene("res://ui/credits.tscn")
