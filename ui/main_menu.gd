@@ -4,6 +4,7 @@ onready var play = get_node("%Play")
 onready var credits = get_node("%Credits")
 onready var exit = get_node("%Exit")
 onready var settings = get_node("%Settings")
+onready var delete = $"%Delete"
 
 
 func _ready():
@@ -14,6 +15,9 @@ func _ready():
 	credits.connect("pressed", self, "_on_credits_pressed")
 	exit.connect("pressed", self, "_on_exit_pressed")
 	play.grab_focus()
+	
+	delete.connect("pressed", self, "_on_delete_pressed")
+
 	
 func _on_play_pressed():
 	if get_tree().change_scene("res://ui/levels.tscn") != OK:
@@ -29,3 +33,6 @@ func _on_credits_pressed():
 func _on_exit_pressed():
 	Data.save_data()
 	get_tree().quit()
+	
+func _on_delete_pressed():
+	Data.clean_data()

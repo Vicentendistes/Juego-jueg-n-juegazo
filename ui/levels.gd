@@ -26,11 +26,23 @@ func _ready():
 			button.grab_focus()
 		elif i > Data.max_level:
 			button.disabled = true
-
+	
+	var times = $"%Times"
+	var text_times = ""
+	var level = 0
+	for time in Data.time_levels:
+		var mils = fmod(time,1)*1000
+		var secs = fmod(time,60)
+		var mins = fmod(time, 60*60) / 60
+		var time_passed = "%02d : %02d: %03d" % [mins,secs,mils]
+		text_times += "level "+str(level) + " ("+str(time_passed)+") \n"
+		level +=1
+	times.text = text_times
+	
 func _on_back_pressed():
 	if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
 		print("error al cambiar de escena")
 
 func _on_level_pressed(i):
-	Data.set_current_level(i) #saves current level in global
+	Data.current_level = i #saves current level in global
 	SceneTransition.change_scene(levels[i])

@@ -5,6 +5,7 @@ onready var back = $"%Back"
 onready var music = $"%Music"
 onready var sound = $"%Sound"
 onready var tiempo = $"%Tiempo"
+onready var delete = $"%Delete"
 
 func _ready():
 	if OS.window_fullscreen:
@@ -19,7 +20,8 @@ func _ready():
 	tiempo.connect("toggled", self, "_on_tiempo_toggled")
 	music.connect("value_changed", self, "_on_Music_value_changed")
 	music.value = MusicController.volume
-
+	
+	
 func _on_back_pressed():
 	if get_tree().change_scene("res://ui/main_menu.tscn") != OK:
 		print("error al cambiar de escena")
@@ -34,3 +36,4 @@ func _on_tiempo_toggled(button_pressed):
 func _on_Music_value_changed(value):
 	MusicController.volume = value
 	MusicController.update()
+	

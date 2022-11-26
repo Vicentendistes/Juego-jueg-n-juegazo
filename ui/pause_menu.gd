@@ -100,7 +100,9 @@ func _on_Music_value_changed(value):
 
 #==============================[COMPLETED SIGNALS]==================================
 func completed()->void:
-	Data.set_current_level(Data.current_level+1)#actualiza el progreso
+	Data.set_max_time(Global.time)
+	print(Data.time_levels)
+	Data.set_max_level(Data.current_level + 1)#actualiza el progreso
 	self.set_process_input(false)
 	Global.time_on = false
 	var time = Global.time
@@ -120,6 +122,7 @@ func completed()->void:
 	next.grab_focus()
 	
 func _on_next_pressed():
+	Data.current_level += 1
 	get_tree().paused = false
 	#Change next level
 	if (Data.current_level)< len(Data.levels):
