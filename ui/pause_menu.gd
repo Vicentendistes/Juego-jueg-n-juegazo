@@ -21,6 +21,11 @@ onready var animation = $Animation
 
 
 func _ready():
+	#container visibility
+	v_box_container.visible = true
+	v_box_container_2.visible = false
+	v_box_container_3.visible = false
+	
 	#Pause
 	resume.connect("pressed", self, "_on_resume_pressed")
 	restart.connect("pressed", self, "_on_restart_pressed")
