@@ -30,14 +30,14 @@ func _ready():
 
 	for time in Data.time_levels:
 		sum_of_best_times += time
-		if time < 0.1:
-			text_times.append("")
+		if not time:
+			text_times.append("\n\nMejor Tiempo: \n   ")
 		else:
 			var mils = fmod(time,1)*1000
 			var secs = fmod(time,60)
 			var mins = fmod(time, 60*60) / 60
 			var time_passed = "%02d : %02d: %03d" % [mins,secs,mils]
-			text_times.append("Mejor Tiempo: \n   "+str(time_passed))
+			text_times.append("\n\nMejor Tiempo: \n   "+str(time_passed))
 
 	var mils = fmod(sum_of_best_times,1)*1000
 	var secs = fmod(sum_of_best_times,60)

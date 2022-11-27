@@ -5,7 +5,6 @@ onready var back = $"%Back"
 onready var music = $"%Music"
 onready var sound = $"%Sound"
 onready var tiempo = $"%Tiempo"
-onready var delete = $"%Delete"
 
 func _ready():
 	if OS.window_fullscreen:

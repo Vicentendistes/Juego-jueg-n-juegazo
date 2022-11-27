@@ -5,7 +5,9 @@ var current_level = 0
 var max_level = 0
 var time_levels = []
 
+var path = "user://db.json"
 var db = {}
+
 func _ready():
 	#checks levels folder and add path to levels list
 	var dir = Directory.new()
@@ -24,12 +26,12 @@ func _ready():
 	
 func load_data():
 	var file = File.new()
-	if not file.file_exists("res://data/db.json"):
-		print("No existe el archivo")
-	file.open("res://data/db.json", File.READ)
+	if not file.file_exists(path):
+		return
+	file.open(path, File.READ)
 	var content = file.get_as_text()
 	file.close()
-	self.db = JSON.parse(content).result
+	db = JSON.parse(content).result
 	max_level = db.max_level
 	for i in range(len(time_levels)):
 		if i < len(db.time_levels):
@@ -37,15 +39,15 @@ func load_data():
 
 func save_data():
 	var file = File.new()
-	file.open("res://data/db.json", File.WRITE)
-	if max_level != null:
-		db.max_level = max_level
-	db.time_levels = time_levels
-	file.store_line(to_json(db))
+	file.open(path, File.WRITE)
+	var save_data = {"max_level":max_level, "time_levels":time_levels}
+	file.store_line(to_json(save_data))
 
 func clean_data():
 	max_level = 0
 	time_levels = []
+	for _i in range(len(levels)):
+		time_levels.append(0)
 
 func set_max_level(value)->void:
 	if value > max_level:

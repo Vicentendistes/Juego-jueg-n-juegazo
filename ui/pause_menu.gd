@@ -128,6 +128,7 @@ func completed()->void:
 	
 func _on_next_pressed():
 	Data.current_level += 1
+	get_tree().get_root().set_disable_input(true)
 	get_tree().paused = false
 	#Change next level
 	if (Data.current_level)< len(Data.levels):
